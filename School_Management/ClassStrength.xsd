@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ClassStrength" targetNamespace="http://tempuri.org/ClassStrength.xsd" xmlns:mstns="http://tempuri.org/ClassStrength.xsd" xmlns="http://tempuri.org/ClassStrength.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ClassStrength" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ClassStrength" msprop:Generator_UserDSName="ClassStrength">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Strength" msprop:Generator_TableClassName="StrengthDataTable" msprop:Generator_TableVarName="tableStrength" msprop:Generator_RowChangedName="StrengthRowChanged" msprop:Generator_TablePropName="Strength" msprop:Generator_RowDeletingName="StrengthRowDeleting" msprop:Generator_RowChangingName="StrengthRowChanging" msprop:Generator_RowEvHandlerName="StrengthRowChangeEventHandler" msprop:Generator_RowDeletedName="StrengthRowDeleted" msprop:Generator_RowClassName="StrengthRow" msprop:Generator_UserTableName="Strength" msprop:Generator_RowEvArgName="StrengthRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PlayGroup" msprop:Generator_ColumnVarNameInTable="columnPlayGroup" msprop:Generator_ColumnPropNameInRow="PlayGroup" msprop:Generator_ColumnPropNameInTable="PlayGroupColumn" msprop:Generator_UserColumnName="PlayGroup" type="xs:short" minOccurs="0" />
+              <xs:element name="Nursery" msprop:Generator_ColumnVarNameInTable="columnNursery" msprop:Generator_ColumnPropNameInRow="Nursery" msprop:Generator_ColumnPropNameInTable="NurseryColumn" msprop:Generator_UserColumnName="Nursery" type="xs:short" minOccurs="0" />
+              <xs:element name="Prep" msprop:Generator_ColumnVarNameInTable="columnPrep" msprop:Generator_ColumnPropNameInRow="Prep" msprop:Generator_ColumnPropNameInTable="PrepColumn" msprop:Generator_UserColumnName="Prep" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0031_" msprop:Generator_ColumnVarNameInTable="column1" msprop:Generator_ColumnPropNameInRow="_1" msprop:Generator_ColumnPropNameInTable="_1Column" msprop:Generator_UserColumnName="1" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0032_" msprop:Generator_ColumnVarNameInTable="column2" msprop:Generator_ColumnPropNameInRow="_2" msprop:Generator_ColumnPropNameInTable="_2Column" msprop:Generator_UserColumnName="2" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0033_" msprop:Generator_ColumnVarNameInTable="column3" msprop:Generator_ColumnPropNameInRow="_3" msprop:Generator_ColumnPropNameInTable="_3Column" msprop:Generator_UserColumnName="3" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0034_" msprop:Generator_ColumnVarNameInTable="column4" msprop:Generator_ColumnPropNameInRow="_4" msprop:Generator_ColumnPropNameInTable="_4Column" msprop:Generator_UserColumnName="4" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0035_" msprop:Generator_ColumnVarNameInTable="column5" msprop:Generator_ColumnPropNameInRow="_5" msprop:Generator_ColumnPropNameInTable="_5Column" msprop:Generator_UserColumnName="5" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0036_" msprop:Generator_ColumnVarNameInTable="column6" msprop:Generator_ColumnPropNameInRow="_6" msprop:Generator_ColumnPropNameInTable="_6Column" msprop:Generator_UserColumnName="6" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0037_" msprop:Generator_ColumnVarNameInTable="column7" msprop:Generator_ColumnPropNameInRow="_7" msprop:Generator_ColumnPropNameInTable="_7Column" msprop:Generator_UserColumnName="7" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0038_" msprop:Generator_ColumnVarNameInTable="column8" msprop:Generator_ColumnPropNameInRow="_8" msprop:Generator_ColumnPropNameInTable="_8Column" msprop:Generator_UserColumnName="8" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0039_" msprop:Generator_ColumnVarNameInTable="column9" msprop:Generator_ColumnPropNameInRow="_9" msprop:Generator_ColumnPropNameInTable="_9Column" msprop:Generator_UserColumnName="9" type="xs:short" minOccurs="0" />
+              <xs:element name="_x0031_0" msprop:Generator_ColumnVarNameInTable="column10" msprop:Generator_ColumnPropNameInRow="_10" msprop:Generator_ColumnPropNameInTable="_10Column" msprop:Generator_UserColumnName="10" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

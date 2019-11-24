@@ -1,0 +1,92 @@
+﻿<Controls:MetroWindow x:Class="School_Management.StudentDiscount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="StudentDiscount" Height="740" Width="1380" FontFamily="Times New Roman" FontSize="14" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MetroWindowLoaded">
+    <Grid>
+        <TabControl Background="White" Foreground="Black" Margin="0,58,0,0">
+            <TabItem Header="Create Discount" Background="{x:Null}" Margin="227,35,-227,-35" BorderBrush="{x:Null}" BorderThickness="0">
+                <Grid Margin="0,70,0,0">
+                    <TextBox x:Name="newDiscountId" Controls:TextBoxHelper.Watermark="Discount ID" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" LostFocus="ResetOnLostFocus" Margin="180,91,0,0" TabIndex="0"/>
+                    <Label Content="Discount ID: " Height="25" Width="105" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,90,0,0" Foreground="Black" Background="{x:Null}"/>
+
+                    <Label Content="Discount Title:" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,154,0,0" Foreground="Black" Background="{x:Null}"/>
+                    <TextBox x:Name="DiscountTitle" Controls:TextBoxHelper.Watermark="Discount Title" MaxLength="50" Height="25" VerticalAlignment="Top" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="180,155,0,0" HorizontalAlignment="Left" TabIndex="1"/>
+
+                    <Label Content=" Amount in Rupees:" Height="25" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,203,0,0" Foreground="Black" Background="{x:Null}" Visibility="Hidden"/>
+                    <TextBox x:Name="DiscountAmount" Controls:TextBoxHelper.Watermark="Amount" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" Margin="201,204,0,0" Visibility="Hidden"/>
+
+                    <Label Content="OR" Height="25" Width="34" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="201,244,0,0" Foreground="Black" Background="{x:Null}" FontWeight="Bold" Visibility="Hidden"/>
+
+                    <Label Content="Percentage:" Height="27" Width="105" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,201,0,0" Foreground="Black" Background="{x:Null}"/>
+                    <TextBox x:Name="DiscountPercentage" Controls:TextBoxHelper.Watermark="Percentage" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" MaxLength="3" Margin="180,203,0,0"/>
+
+
+                    <Button x:Name="CreateDiscountButton" Style="{DynamicResource SquareButtonStyle}" Content="Save" Width="75" Margin="70,337,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Click="createButtonClick" BorderThickness="1" FontFamily="Tw Cen MT" FontWeight="Normal" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+                    <Button x:Name="UpdateDiscountButton" Style="{DynamicResource SquareButtonStyle}" Content="Update" Width="75" Margin="70,337,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Click="updateButtonClick" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Allocate Discount" Background="White" Margin="301,38,-301,-38">
+                <Grid Margin="0,70,0,0">
+                    <TextBox x:Name="Id" Controls:TextBoxHelper.Watermark="Admission Number" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" LostFocus="SearchOnLostFocus" Margin="180,90,0,0" TabIndex="0"/>
+                    <Label Content="Admission Number: " Height="25" Width="134" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="41,90,0,0" Foreground="Black"/>
+
+                    <Label Content="Student's Name: " Height="25" Width="110" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="41,144,0,0" Foreground="Black"/>
+                    <TextBox x:Name="StudentNameText" Controls:TextBoxHelper.Watermark="Student's Name" MaxLength="50" Height="25" VerticalAlignment="Top" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="180,145,0,0" IsEnabled="False" HorizontalAlignment="Left" TabIndex="1"/>
+
+                    <Label Content="Father's Name: " Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,191,0,0" Foreground="Black"/>
+                    <TextBox x:Name="FatherNameText" Controls:TextBoxHelper.Watermark="Father's Name" MaxLength="50" Height="25" VerticalAlignment="Top" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="180,192,0,0" IsEnabled="False" HorizontalAlignment="Left"/>
+
+                    <Label Content="Grade: " Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,240,0,0" Foreground="Black"/>
+                    <TextBox x:Name="grade" Controls:TextBoxHelper.Watermark="Grade" MaxLength="50" Height="25" VerticalAlignment="Top" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="180,241,0,0" IsEnabled="False" HorizontalAlignment="Left"/>
+
+                    <Label Content="Fee Name:   " Height="25" Width="81" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="436,89,0,0" Foreground="Black"/>
+                    <ComboBox x:Name="FeeName" SelectionChanged="FeeNameSelectionChanged" VerticalAlignment="Top" HorizontalAlignment="Left" Width="238" SelectedIndex="0" Margin="546,89,0,0"/>
+
+                    <Label Content="Fee Amount:" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="436,141,0,0" Foreground="Black"/>
+                    <TextBox x:Name="FeeAmount" Controls:TextBoxHelper.Watermark="Fee Amount" MaxLength="50" Height="25" VerticalAlignment="Top" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="150" Margin="546,142,0,0" IsEnabled="False" HorizontalAlignment="Left"/>
+
+                    <Label Content="Discount Title:" Height="25" Width="105" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="436,191,0,0" Foreground="Black"/>
+                    <ComboBox x:Name="giveDiscount" SelectionChanged="giveDiscountSelectionChanged" VerticalAlignment="Top" HorizontalAlignment="Left" Width="238" SelectedIndex="0" Margin="546,191,0,0"/>
+
+                    <Label Content="Discounted Fee:" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="436,240,0,0" Foreground="Black"/>
+                    <TextBox x:Name="feeAfter" Controls:TextBoxHelper.Watermark="Dicounted" MaxLength="50" Height="25" VerticalAlignment="Top" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="150" Margin="546,241,0,0" IsEnabled="False" HorizontalAlignment="Left"/>
+
+                    <Button x:Name="button" Content="Save" Width="75" Margin="436,336,0,0" Height="32" Style="{DynamicResource SquareButtonStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="saveButtonClick"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="View" Background="White" Margin="348,36,-364,-36">
+                <Grid>
+                    <Label Content="Fee Name:   " Height="25" Width="81" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="43,85,0,0" Foreground="Black"/>
+                    <ComboBox x:Name="ViewFeeName" SelectionChanged="ViewFeeNameSelectionChanged" VerticalAlignment="Top" HorizontalAlignment="Left" Width="238" Margin="132,85,0,0"/>
+                    
+                    <Label Content="Remove Discount:   " Height="25" Width="123" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="43,136,0,0" Foreground="Black"/>
+                    <TextBox x:Name="admissionID" Controls:TextBoxHelper.Watermark="Admission ID" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="126" Margin="171,135,0,0" TabIndex="0"/>
+                    
+                    <Button x:Name="removeButton" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Content="Remove" Margin="91,225,0,0" Click="removeButtonClick" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+                    <Button x:Name="refreshButton" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Content="Refresh" Margin="198,225,0,0" Click="refreshButtonClick" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75"/>
+
+                    <DataGrid x:Name="DiscountDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True" HorizontalAlignment="Left" Width="919" Margin="401,66,0,41">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding StudentDiscountID}" Width="60" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding AdmissionNumber}" Width="60" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding MotherName}" Header="Mother Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Amount}" Header="Fee Amount" Width="150" IsReadOnly="True"/>
+                           
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>

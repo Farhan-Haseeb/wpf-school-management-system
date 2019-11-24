@@ -1,0 +1,84 @@
+﻿<Controls:MetroWindow x:Class="School_Management.SMS"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="SMS" Height="740" Width="1380" 
+        FontFamily="Tw Cen MT" FontSize="14" WindowState="Maximized" Loaded="MetroWindow_Loaded" 
+        WindowStartupLocation="CenterScreen">
+    <TabControl x:Name="main" Background="White" Foreground="White">
+        <TabItem Header="SEND MESSAGES" Background="White" Margin="48,43,-48,-43"  >
+            <Grid Margin="0,58,0,0">
+                <DataGrid x:Name="SMSSearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="91,60,0,40" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True" HorizontalAlignment="Left" Width="1097">
+                    <DataGrid.Columns>
+                        <!--<DataGridCheckBoxColumn x:Name="SelectedStudent" Header="Select"  IsReadOnly="False"/>-->
+                        <DataGridTextColumn Binding="{Binding AdmissionNumber}" Width="70" Header="#" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Mobile}" Header="Mobile" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Active}" Header="Active" Width="150" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <ComboBox x:Name="Grade" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="173,11,0,0" VerticalAlignment="Top" Width="133" Height="25">
+                    <ComboBoxItem Content="Play Group" Tag="Play Group"/>
+                    <ComboBoxItem Content="Nursery" Tag="Nursery"/>
+                    <ComboBoxItem Content="Prep" Tag="Prep"/>
+                    <ComboBoxItem Content="1" Tag="1"/>
+                    <ComboBoxItem Content="2" Tag="2"/>
+                    <ComboBoxItem Content="3" Tag="3"/>
+                    <ComboBoxItem Content="4" Tag="4"/>
+                    <ComboBoxItem Content="5" Tag="5"/>
+                    <ComboBoxItem Content="6" Tag="6"/>
+                    <ComboBoxItem Content="7" Tag="7"/>
+                    <ComboBoxItem Content="8" Tag="8"/>
+                    <ComboBoxItem Content="9" Tag="9"/>
+                    <ComboBoxItem Content="10" Tag="10"/>
+                </ComboBox>
+                <RadioButton x:Name="gradeRadioButton" Content="Grade:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Margin="94,11,0,0" Width="74"/>
+
+                <ComboBox x:Name="type" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="433,207,0,0" VerticalAlignment="Top" Width="133" Height="25" Visibility="Hidden">
+                    <ComboBoxItem Content="Mobile" Tag="Mobile"/>
+                    <ComboBoxItem Content="Phone" Tag="Phone"/>
+                    <ComboBoxItem Content="Emergency" Tag="Emergency"/>
+                </ComboBox>
+                <Label Content="Contact Type:" Margin="334,207,941,477" Visibility="Hidden"/>
+
+                <RadioButton x:Name="DefaultersRadioButton" Content="Defaulters" HorizontalAlignment="Left" Margin="323,11,0,0" VerticalAlignment="Top" Height="26" Width="92"/>
+                <RadioButton x:Name="ToAllRadioButton" Content="To All Students" HorizontalAlignment="Left" Margin="436,11,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+
+                <Button x:Name="searchContacts" Style="{DynamicResource ResourceKey=SquareButtonStyle}" Content="Search" HorizontalAlignment="Left" Margin="603,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="searchContactsClick" Height="25"/>
+
+                <Label Content="Messages:   " Height="27" Width="81" Margin="705,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black" Background="{x:Null}"/>
+                <ComboBox x:Name="messagesTitle" SelectionChanged="messagesSelectionChanged" VerticalAlignment="Top" Margin="798,10,0,0" HorizontalAlignment="Left" Width="238" SelectedIndex="0" Height="25"/>
+
+                <Button x:Name="exportContacts" Style="{DynamicResource SquareButtonStyle}" Content="Export Contacts" HorizontalAlignment="Left" Margin="1104,11,0,0" VerticalAlignment="Top" Width="123" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="exportContactsClick" Height="25"/>
+                <!--<Button x:Name="refresContacts" Style="{DynamicResource ResourceKey=SquareButtonStyle}" Content="Export All" HorizontalAlignment="Left" Margin="91,132,0,0" VerticalAlignment="Top" Width="75" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="exportAllContactsClick" Height="25"/>-->
+
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="CREATE MESSAGE" Background="White" Margin="78,43,-78,-43">
+            <Grid Margin="0,70,0,0">
+                <TextBox x:Name="newTextId" Controls:TextBoxHelper.Watermark="Text ID" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" LostFocus="ResetOnLostFocus" Margin="180,90,0,0"/>
+                <Label Content="Text Id: " Height="25" Width="105" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="70,90,0,0" Foreground="Black" Background="{x:Null}"/>
+
+                <Label Content="Text Title:" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,154,0,0" Foreground="Black" Background="{x:Null}"/>
+                <TextBox x:Name="textTitle" Controls:TextBoxHelper.Watermark="Text Title" MaxLength="50" Height="25" VerticalAlignment="Top" Width="196" Margin="180,154,0,0" HorizontalAlignment="Left" TabIndex="1"/>
+
+                <Label Content=" Body:" Height="25" Width="110" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,203,0,0" Foreground="Black" Background="{x:Null}"/>
+                <TextBox x:Name="textBody" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Body" Height="167" VerticalAlignment="Top" HorizontalAlignment="Left" Width="776" Margin="180,204,0,0" FontSize="14" MaxLength="500"/>
+
+                <Button x:Name="CreateTextButton" Style="{DynamicResource SquareButtonStyle}" Content="Save" Width="75" Margin="70,388,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Click="createButtonClick" BorderThickness="1" FontFamily="Tw Cen MT" FontWeight="Normal" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+                <Button x:Name="UpdateTextButton" Style="{DynamicResource SquareButtonStyle}" Content="Update" Width="75" Margin="70,388,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Click="updateButtonClick" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Visibility="Hidden"/>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Controls:MetroWindow>

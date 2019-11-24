@@ -1,0 +1,41 @@
+﻿<Controls:MetroWindow x:Class="School_Management.SchoolWiseAdmission"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="School Wise Admissions View" Height="740" Width="1380" FontFamily="Tw Cen MT" FontSize="14" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="White">
+        <Border CornerRadius="3" BorderThickness="1" Height="101" VerticalAlignment="Top" HorizontalAlignment="Left" Width="440">
+            <Grid Background="#FF1E90D1">
+                <TextBox x:Name="PreviousSchool" Controls:TextBoxHelper.Watermark="Search School Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" PreviewTextInput="AlphabetOnly_PreviewTextInput" Margin="124,55,0,0" HorizontalAlignment="Left" Width="177"/>
+                <Label Content="School Name: " HorizontalAlignment="Left" VerticalAlignment="Top" Width="103" Foreground="White" Margin="10,55,0,0"/>
+                <Button x:Name="searchButton" Style="{DynamicResource SquareButtonStyle}" Content="Search" HorizontalAlignment="Left" Margin="339,55,0,0" VerticalAlignment="Top" Width="75" Click="searchButtonClick" IsDefault="True" Cursor="Hand" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" BorderThickness="1"/>
+                <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Search By School Name" HorizontalAlignment="Left" VerticalAlignment="Top" Width="440" Foreground="White" Height="35" Background="#FF174276"/>
+            </Grid>
+        </Border>
+
+
+        <DataGrid x:Name="StudentSearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="30,120,30,30" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="admissionNumberColumn" Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="studentNameColumn" Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="GenderColumn" Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="GradeColumn" Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="fNameColumn" Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="desColmn" Binding="{Binding MotherName}" Header="Mother Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="emergencyColumn" Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dobColumn" Binding="{Binding DOB}" Header="DOB" IsReadOnly="True" Width="100"/>
+
+                <DataGridTextColumn x:Name="raClumn" Binding="{Binding PreviousSchoolName}" Header="Previous School" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="deColmn" Binding="{Binding ReasonOfLeaving}" Header="Reason Of Leaving" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="usCoumn" Binding="{Binding Studied}" Header="Studied From - To" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="totalDuesColumn" Binding="{Binding DateOfAdmission}" Header="Date Of Admission" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="recievedColumn" Binding="{Binding AcademicYear}" Header="AcademicYear" Width="150" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,86 @@
+﻿<Controls:MetroWindow x:Class="School_Management.Employee"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Employee" Height="740" Width="1380" FontFamily="Tw Cen MT" 
+    FontSize="16
+                      " WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="WindowLoaded">
+    <Grid>
+        <TabControl Background="White" Margin="267,0,0,0" x:Name="menu">
+            <TabItem Header="Employee" Background="White" Margin="141,65,-141,-69">
+                <Grid Margin="0,70,0,0">
+                    <TextBox x:Name="employeeId" Controls:TextBoxHelper.Watermark="Employee Id" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" LostFocus="ResetOnLostFocus" Margin="148,51,0,0"/>
+                    <Label Content="Employee Id: " Height="25" Width="89" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="54,50,0,0" Foreground="Black"/>
+
+                    <Label Content="Date: " Height="25" Width="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="368,50,0,0" Foreground="Black"/>
+                    <TextBox x:Name="joinedOn" Controls:TextBoxHelper.Watermark="Joined On" MaxLength="10" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" Margin="423,49,0,0"/>
+
+                    <Label Content="Name:" Margin="54,115,0,0" HorizontalAlignment="Left" Width="50" Height="26" VerticalAlignment="Top" Foreground="Black"/>
+                    <TextBox x:Name="employeeName" Controls:TextBoxHelper.Watermark="Employee's Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="128,115,0,0" HorizontalAlignment="Left"/>
+
+                    <Label Content="Gender: " Height="25" Width="90" Margin="368,114,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black"/>
+                    <RadioButton x:Name="MaleRadioButton" Content="Male" Margin="463,118,0,0" Foreground="Black" HorizontalAlignment="Left" Width="71" Height="26" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="FemaleRadioButton" Content="Female" Margin="539,118,0,0" VerticalAlignment="Top" Foreground="Black" Height="21" HorizontalAlignment="Left" Width="82"/>
+
+                    <TextBox x:Name="age" Controls:TextBoxHelper.Watermark="Age" Height="25" MaxLength="2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62" PreviewTextInput="NumericOnly_PreviewTextInput" Margin="682,118,0,0"/>
+                    <Label Content="Age: " Height="26" Width="56" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="626,115,0,0" Foreground="Black"/>
+
+                    <Label Content="CNIC:" Margin="54,163,0,0" HorizontalAlignment="Left" Width="50" Height="26" VerticalAlignment="Top" Foreground="Black"/>
+                    <TextBox x:Name="CNIC" Controls:TextBoxHelper.Watermark="CNIC" MaxLength="15" Height="25" Margin="128,163,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196"/>
+
+                    <Label Content="Father Name:" Margin="368,163,0,0" HorizontalAlignment="Left" Width="106" Height="26" VerticalAlignment="Top" Foreground="Black"/>
+                    <TextBox x:Name="employeeFatherName" Controls:TextBoxHelper.Watermark="Father Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="491,163,0,0" HorizontalAlignment="Left"/>
+
+                    <Label Content="Address:    " Height="25" Width="69" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="54,212,0,0" Foreground="Black"/>
+                    <TextBox x:Name="HomeAddressText" Controls:TextBoxHelper.Watermark="Full Address" MaxLength="200" Height="124" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" Width="196" Margin="128,213,0,0" HorizontalAlignment="Left"/>
+
+                    <Label Content="Qualification:" Margin="368,213,0,0" HorizontalAlignment="Left" Width="106" Height="26" VerticalAlignment="Top" Foreground="Black"/>
+                    <TextBox x:Name="qualification" Controls:TextBoxHelper.Watermark="Qualification" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="491,213,0,0" HorizontalAlignment="Left"/>
+
+
+                    <Label Content="Contact:" Margin="368,259,0,0" HorizontalAlignment="Left" Width="90" Height="26" VerticalAlignment="Top" Foreground="Black"/>
+                    <TextBox x:Name="primaryContact" Controls:TextBoxHelper.Watermark="Primary Contact" MaxLength="11" Height="25" Margin="491,260,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196"/>
+
+                    <Label Content="Other Contact:" Margin="368,310,0,0" HorizontalAlignment="Left" Width="106" Height="26" VerticalAlignment="Top" Foreground="Black"/>
+                    <TextBox x:Name="secondaryContact" Controls:TextBoxHelper.Watermark="Secondary Contact" MaxLength="11" Height="25" Margin="491,311,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196"/>
+
+                    <Label Content="Subject:" Margin="54,360,0,0" HorizontalAlignment="Left" Width="69" Height="26" VerticalAlignment="Top" Foreground="Black"/>
+                    <TextBox x:Name="subject" Controls:TextBoxHelper.Watermark="Subject" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="128,360,0,0" HorizontalAlignment="Left"/>
+
+                    <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="128,446,0,0" VerticalAlignment="Top" Width="75" Click="saveButtonClick" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                    <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Left" Margin="128,446,0,0" VerticalAlignment="Top" Width="75" Click="updateButtonClick" Visibility="Hidden" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                    <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="238,446,0,0" VerticalAlignment="Top" Width="75" Click="deleteButtonClick" Visibility="Hidden" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="View Staff" Background="White" Margin="199,60,-199,-71">
+                <Grid Margin="0,70,0,0">
+                    <Button x:Name="printButton" Content="Print" Width="75" Margin="269,45,0,0" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Click="printButtonClick" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                    <DataGrid x:Name="EmployeeGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" Margin="30,114,30,30">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding EmployeeId}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding CNIC}" Header="CNIC" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Age}" Header="Age" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Qualifications}" Header="Qualifications" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Subject}" Header="Subject" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding PrimaryContact}" Header="Primary Contact" IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn Binding="{Binding SecondaryContact}" Header="Secondary Contact" IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn Binding="{Binding Address}" Header="Address" IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn Binding="{Binding JoinedOn}" Header="JoinedOn" IsReadOnly="True" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Grid HorizontalAlignment="Left" Width="267" Background="#FF1E90D1">
+            <Label x:Name="autoBatchLabel" Content="Employees" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,242,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave"  MouseDown="employeeLabelMouseDown"/>
+            <Label x:Name="IndividualLabel" Content="View Staff" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,285,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave" MouseDown="viewLabelMouseDown"/>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>

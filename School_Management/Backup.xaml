@@ -1,0 +1,24 @@
+﻿<Controls:MetroWindow x:Class="School_Management.Backup"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Backup" Height="740" Width="1380" FontFamily="Tw Cen MT" FontSize="14">
+    <Grid>
+        <Expander Margin="50,77,0,519" Header="Backup" HorizontalAlignment="Left" Width="386">
+            <Button FontFamily="FontAwesome" Content="Create Backup" BorderThickness="1" FontWeight="Normal" Style="{DynamicResource SquareButtonStyle}" Height="44" Margin="10,0,0,0" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Left" Width="126" Click="BackupButtonClick"/>
+        </Expander>
+        <Label Content="Last Backup was created on (manually):" HorizontalAlignment="Left" Margin="518,77,0,0" VerticalAlignment="Top" Height="27" Width="281"/>
+        <Label x:Name="lastBackup" Content="Last Backup was created on:" HorizontalAlignment="Left" Margin="814,77,0,0" VerticalAlignment="Top" Height="27" Width="195"/>
+        <ProgressBar x:Name="progressBarr" HorizontalAlignment="Left" Height="22" Margin="50,254,0,0" VerticalAlignment="Top" Width="413" Foreground="#FF09A84A" Background="{x:Null}" Visibility="Hidden"/>
+        <Label  x:Name="title" Content="Wait..." HorizontalAlignment="Left" Margin="50,222,0,0" VerticalAlignment="Top" Height="27" Width="171" Background="{x:Null}" Visibility="Hidden"/>
+        
+        <Expander Margin="50,324,0,272" Header="Restore" HorizontalAlignment="Left" Width="386">
+            <Button FontFamily="FontAwesome" Content="Restore Backup" BorderThickness="1" FontWeight="Normal" Style="{DynamicResource SquareButtonStyle}" Height="44" Margin="10,0,0,0" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Left" Width="126" Click="RestoreButtonClick"/>
+        </Expander>
+        
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,59 @@
+﻿<Controls:MetroWindow
+        x:Class="School_Management.Stocks"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Stocks" Height="540" Width="980" FontFamily="Tw Cen MT" FontSize="14" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="MetroWindowLoaded">
+    <Grid>
+        <TabControl Background="White">
+            <TabItem Header="New Stock" Background="White" Margin="102,50,-102,-49">
+                <Grid Background="White" Margin="0,60,0,0">
+                    <Label Content="ID:  " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="108,58,0,0" Background="#00000000" Foreground="Black"/>
+                    <TextBox x:Name="stockID" HorizontalAlignment="Left" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Search Id" Margin="189,58,0,0" Width="143" LostFocus="ResetOnLostFocus" PreviewTextInput="NumericOnly_PreviewTextInput"/>
+
+                    <Label Content="Title:  " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="108,100,0,0" Background="#00000000" Foreground="Black"/>
+                    <TextBox x:Name="stockTitle" HorizontalAlignment="Left" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Add Title" Margin="189,100,0,0" Width="143" PreviewTextInput="AlphabetOnly_PreviewTextInput"/>
+
+                    <Label Content="Quantity:   " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="108,140,0,0" Background="#00000000" Foreground="Black"/>
+                    <TextBox x:Name="quantity" HorizontalAlignment="Left" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Quantity" Margin="189,141,0,0" Width="143" PreviewTextInput="NumericOnly_PreviewTextInput"/>
+
+                    <Label Content="Amount per/item:    " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,180,0,0" Background="#00000000" Foreground="Black"/>
+                    <TextBox x:Name="amount" HorizontalAlignment="Left" VerticalAlignment="Top" Controls:TextBoxHelper.Watermark="Price per/item" Margin="187,180,0,0" Width="143" PreviewTextInput="NumericOnly_PreviewTextInput"/>
+
+                    <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="108,260,0,0" VerticalAlignment="Top" Width="75" Click="addButtonClick" Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="updateButton" Content="Update" HorizontalAlignment="Left" Margin="108,260,0,0" VerticalAlignment="Top" Width="75" Click="updateButtonClick" Visibility="Hidden" Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{DynamicResource SquareButtonStyle}"/>
+                    <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="232,260,0,0" VerticalAlignment="Top" Width="75" Click="deleteButtonClick" Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{DynamicResource SquareButtonStyle}"/>
+                    <DataGrid x:Name="SearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" HorizontalAlignment="Left" Width="498" Margin="438,34,0,40">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding StockId}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Amount}" Header="Amount/item" Width="120" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding TotalAmount}" Header="Total Amount" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding AddedOn}" Header="Added On" Width="150" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Sell" Background="White" Margin="150,50,-168,-49" >
+                <Grid Margin="0,70,0,0">
+                    <Label Content="Available Stocks: " Height="26" Width="134" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="76,75,0,0"/>
+                    <ComboBox x:Name="stocksBox" VerticalAlignment="Top" Width="196" SelectionChanged="StockSelectionChanged" HorizontalAlignment="Left" Margin="210,75,0,0"/>
+
+                    <TextBox x:Name="buyerName" Controls:TextBoxHelper.Watermark="Buyer Name" HorizontalAlignment="Left" Height="23" Margin="210,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="sellQuantity" Controls:TextBoxHelper.Watermark="Quantity of item" HorizontalAlignment="Left" Height="23" Margin="210,166,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="sellPrice" Controls:TextBoxHelper.Watermark="Price" HorizontalAlignment="Left" Height="23" Margin="210,211,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Buyers Name:" HorizontalAlignment="Left" Margin="76,121,0,0" VerticalAlignment="Top" Width="103"/>
+                    <Label Content="Quantity:" HorizontalAlignment="Left" Margin="76,166,0,0" VerticalAlignment="Top" Width="103"/>
+                    <Label Content="Price:" HorizontalAlignment="Left" Margin="76,211,0,0" VerticalAlignment="Top" Width="103"/>
+
+                    <Button x:Name="button" Content="Sell" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="sellButtonClick" Margin="76,265,0,0" Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{DynamicResource SquareButtonStyle}"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>

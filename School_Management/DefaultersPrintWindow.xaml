@@ -1,0 +1,15 @@
+﻿<Controls:MetroWindow 
+        x:Class="School_Management.DefaultersPrintWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" 
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="DefaultersPrintWindow" Height="740" Width="1380" Loaded="MetroWindow_Loaded">
+    <Grid>
+        <Viewer:CrystalReportsViewer x:Name="DefaulterViewer" Margin="0,0,0,0" />
+    </Grid>
+</Controls:MetroWindow>

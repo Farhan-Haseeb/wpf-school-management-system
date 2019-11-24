@@ -1,0 +1,120 @@
+﻿<Controls:MetroWindow
+        x:Class="School_Management.Promotion"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Promotion" Height="740" Width="1380" FontFamily="Times New Roman" 
+    FontSize="14" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="White">
+        <DataGrid x:Name="StudentSearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="29,146,41,32" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn x:Name="SelectedStudent" Header="Select"  IsReadOnly="False"/>
+                <DataGridTextColumn x:Name="admissionNumberColumn" Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="studentNameColumn" Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="GenderColumn" Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="GradeColumn" Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="fNameColumn" Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="fatherCNICColumn" Binding="{Binding FatherCNIC}" Header="Father CNIC" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="desColmn" Binding="{Binding MotherName}" Header="Mother Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="exraTtleColumn" Binding="{Binding MotherCNIC}" Header="Mother CNIC" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="emergencyColumn" Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="eraColn" Binding="{Binding Phone}" Header="Phone" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dobColumn" Binding="{Binding DOB}" Header="DOB" IsReadOnly="True" Width="150"/>
+                <DataGridTextColumn x:Name="extaTitleColum" Binding="{Binding HomeAddress}" Header="Home Address" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="eraColun" Binding="{Binding Mobile}" Header="Mobile" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="FirstLanguageColumn" Binding="{Binding FirstLanguage}" Header="First Language" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="paidColumn" Binding="{Binding Nationality}" Header="Nationality" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="extaTitleColm" Binding="{Binding Religion}" Header="Religion" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="fatheroccupationColumn" Binding="{Binding FarherOccupation}" Header="Farher Occupation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="FatherDesignationColumn" Binding="{Binding FatherDesignation}" Header="Father Designation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="FatherWorkAddressColumn" Binding="{Binding FatherWorkAddress}" Header="Father Work Address" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="GuardianNameColumn" Binding="{Binding GuardianName}" Header="Guardian Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="traColumn" Binding="{Binding GuardianRelation}" Header="Guardian Relation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dusColumn" Binding="{Binding GuardianAddress}" Header="Guardian Address" Width="150" IsReadOnly="True"/>
+
+
+                <DataGridTextColumn x:Name="traClumn" Binding="{Binding MotherOccupation}" Header="Mother Occupation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dusCoumn" Binding="{Binding MotherDesignation}" Header="Mother Designation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dusCoun" Binding="{Binding MotherWorkAddress}" Header="Mother Work Address" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="deColmn" Binding="{Binding ReasonOfLeaving}" Header="Reason Of Leaving" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="eraTtleColumn" Binding="{Binding PlaceOfBirth}" Header="Place Of Birth" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="raClumn" Binding="{Binding PreviousSchoolName}" Header="Previous School" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="usCoumn" Binding="{Binding Studied}" Header="Studied From - To" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="grandTotalColumn" Binding="{Binding Updated}" Header="Last Updated" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="totalDuesColumn" Binding="{Binding DateOfAdmission}" Header="Date Of Admission" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="recievedColumn" Binding="{Binding AcademicYear}" Header="AcademicYear" Width="150" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="refresButton" Style="{DynamicResource SquareButtonStyle}" Content="Refresh" HorizontalAlignment="Left" Margin="280,85,0,0" VerticalAlignment="Top" Width="90" Height="32" Click="ReloadButtonClick" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" BorderThickness="1" FontWeight="Normal"/>
+        <Button x:Name="withdrawButton" Style="{DynamicResource SquareButtonStyle}" Content="Proceed" HorizontalAlignment="Left" Margin="44,85,0,0" VerticalAlignment="Top" Width="89" Height="32" Click="withdrawButtonClick" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" BorderThickness="1" FontWeight="Normal"/>
+        <Label Content="Promote To Grade:  " Height="25" Width="119" Margin="44,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black" Background="{x:Null}"/>
+        <ComboBox x:Name="PromoteGrade" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="166,40,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="GradeSelectionChanged">
+            <ComboBoxItem Content="Play Group" Tag="Play Group"/>
+            <ComboBoxItem Content="Nursery" Tag="Nursery"/>
+            <ComboBoxItem Content="Prep" Tag="Prep"/>
+            <ComboBoxItem Content="1" Tag="1"/>
+            <ComboBoxItem Content="2" Tag="2"/>
+            <ComboBoxItem Content="3" Tag="3"/>
+            <ComboBoxItem Content="4" Tag="4"/>
+            <ComboBoxItem Content="5" Tag="5"/>
+            <ComboBoxItem Content="6" Tag="6"/>
+            <ComboBoxItem Content="7" Tag="7"/>
+            <ComboBoxItem Content="8" Tag="8"/>
+            <ComboBoxItem Content="9" Tag="9"/>
+            <ComboBoxItem Content="10" Tag="10"/>
+        </ComboBox>
+        <Border BorderBrush="#FF004770" BorderThickness="2,0,2,2" HorizontalAlignment="Left" Height="36" Margin="468,0,0,0" VerticalAlignment="Top" Width="145" CornerRadius="2" Background="#FF1E90D1" Cursor="Hand" MouseDown="SearchShowMouseDown">
+            <Label Content="Search Here" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        </Border>
+        <Border x:Name="searchGrid" Margin="622,0,0,0" HorizontalAlignment="Left" Width="426" Height="0" VerticalAlignment="Top" Background="White" Panel.ZIndex="1" BorderThickness="0.75" CornerRadius="3">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <RadioButton x:Name="sId" Content="Student ID:  " HorizontalAlignment="Left"  VerticalAlignment="Top" Width="112" Height="26" Checked="stdIdChecked" Margin="22,72,0,0" Cursor="Hand"/>
+                <TextBox x:Name="stdId" Controls:TextBoxHelper.Watermark="Admission Number" Height="25" Margin="155,72,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput" Visibility="Hidden"/>
+
+                <RadioButton x:Name="sName" Content="Student Name:  " HorizontalAlignment="Left" Margin="22,125,0,0" VerticalAlignment="Top" Width="112" Checked="stdNameChecked" Cursor="Hand"/>
+                <TextBox x:Name="stdName" Controls:TextBoxHelper.Watermark="Student's Name" MaxLength="50" Height="25" Margin="155,117,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" Visibility="Hidden"/>
+
+                <RadioButton x:Name="fName" Content="Father Name:  " HorizontalAlignment="Left" Margin="22,173,0,0" VerticalAlignment="Top" Width="112" Checked="fatherNameChecked" Cursor="Hand"/>
+                <TextBox x:Name="fatherName" Controls:TextBoxHelper.Watermark="Father's Name" MaxLength="50" Height="25" Margin="155,174,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" Visibility="Hidden"/>
+
+                <RadioButton x:Name="emergencyNumber" Content="Contact:   " HorizontalAlignment="Left" Margin="22,220,0,0" VerticalAlignment="Top" Width="112" Checked="emergencyChecked" Cursor="Hand"/>
+                <TextBox x:Name="emergency" Controls:TextBoxHelper.Watermark="Emergency" MaxLength="11" Height="25" Margin="155,221,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" Visibility="Hidden"/>
+
+
+                <RadioButton x:Name="gradeRadioButton" Content="Grade:  " Height="25" Width="79" Margin="22,258,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Checked="gradeRadioButtonChecked"/>
+                <ComboBox x:Name="Grade" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="155,262,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="GradeSelectionChanged" Visibility="Hidden">
+                    <ComboBoxItem Content="Play Group" Tag="Play Group"/>
+                    <ComboBoxItem Content="Nursery" Tag="Nursery"/>
+                    <ComboBoxItem Content="Prep" Tag="Prep"/>
+                    <ComboBoxItem Content="1" Tag="1"/>
+                    <ComboBoxItem Content="2" Tag="2"/>
+                    <ComboBoxItem Content="3" Tag="3"/>
+                    <ComboBoxItem Content="4" Tag="4"/>
+                    <ComboBoxItem Content="5" Tag="5"/>
+                    <ComboBoxItem Content="6" Tag="6"/>
+                    <ComboBoxItem Content="7" Tag="7"/>
+                    <ComboBoxItem Content="8" Tag="8"/>
+                    <ComboBoxItem Content="9" Tag="9"/>
+                    <ComboBoxItem Content="10" Tag="10"/>
+                </ComboBox>
+
+                <Label x:Name="label" Content="Search By:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="426" Height="53" FontSize="26.667" FontWeight="Bold" Foreground="White" Background="#FF1E90D1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+                <Button x:Name="searchButton" Content="Search" Style="{DynamicResource SquareButtonStyle}" Margin="155,293,182,0" VerticalAlignment="Top" Height="28" Click="SearchButtonClick" IsDefault="True" Cursor="Hand" BorderThickness="1" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+            </Grid>
+        </Border>
+        <Button Style="{DynamicResource SquareButtonStyle}" Content="Promote All" HorizontalAlignment="Left" Margin="166,85,0,0" VerticalAlignment="Top" Width="89" Height="32" Click="withdrawAllButtonClick" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" BorderThickness="1" FontWeight="Normal"/>
+    </Grid>
+</Controls:MetroWindow>

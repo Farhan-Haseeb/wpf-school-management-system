@@ -1,0 +1,94 @@
+﻿<Controls:MetroWindow 
+        x:Class="School_Management.Accounts"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Accounts" 
+        Height="740" 
+        Width="1380" 
+        FontFamily="Times New Roman" 
+        FontSize="14" 
+        WindowStartupLocation="CenterScreen" 
+        WindowState="Maximized">
+    <TabControl Background="White">
+        <TabItem Header="Invoices" Background="White">
+            <Grid Background="White">
+                <RadioButton x:Name="myRadioButton" Content="Month and Year " HorizontalAlignment="Left" Margin="53,42,0,0" VerticalAlignment="Top" Checked="radioButtonChecked" Foreground="Black"/>
+                <RadioButton x:Name="yearRadionButton" Content="Year" HorizontalAlignment="Left" Margin="53,79,0,0" VerticalAlignment="Top" Checked="radioButtonChecked" Foreground="Black"/>
+                <ComboBox x:Name="historyMonth" SelectedIndex="0" SelectedValuePath="Tag" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="194,35,0,0" Visibility="Hidden">
+                    <ComboBoxItem Content="January" Tag="1"/>
+                    <ComboBoxItem Content="Febuary" Tag="2"/>
+                    <ComboBoxItem Content="March" Tag="3"/>
+                    <ComboBoxItem Content="April" Tag="4"/>
+                    <ComboBoxItem Content="May" Tag="5"/>
+                    <ComboBoxItem Content="June" Tag="6"/>
+                    <ComboBoxItem Content="July" Tag="7"/>
+                    <ComboBoxItem Content="August" Tag="8"/>
+                    <ComboBoxItem Content="September" Tag="9"/>
+                    <ComboBoxItem Content="Octuber" Tag="10"/>
+                    <ComboBoxItem Content="November" Tag="11"/>
+                    <ComboBoxItem Content="December" Tag="12"/>
+                </ComboBox>
+                <ComboBox x:Name="historyYear" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" Margin="194,79,0,0" Visibility="Hidden"/>
+
+                <DataGrid x:Name="invoiceGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" Margin="10,128,0,21" HorizontalAlignment="Left" Width="1326">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding InvoiceID}" Width="110" Header="Invoice Id" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding AdmissionNumber}" Width="110" Header="Student Id" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Width="150" Header="Name" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding FatherName}" Width="150" Header="Father" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Grade}" Width="80" Header="Grade" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding TotalFeeOfMonth}" Header="Total Amount" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Paid}" Width="100" Header="Paid" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Dues}" Width="100" Header="Dues" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding PayingMonth}" Header="Month" Width="120" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding InvoiceDate}" Header="Paid on" Width="120" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="searchHistory" Content="Search" HorizontalAlignment="Left" Margin="364,35,0,0" VerticalAlignment="Top" Width="74" Click="searchHistoryClick" IsDefault="True" Style="{DynamicResource SquareButtonStyle}"  Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+                <Button x:Name="printButton" Content="Print" HorizontalAlignment="Left" Margin="364,71,0,0" VerticalAlignment="Top" Width="74" Click="printButtonClick" Style="{DynamicResource SquareButtonStyle}"  Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Stocks">
+            <Grid Background="White">
+                <RadioButton x:Name="StockMYRadioButton" Content="Month and Year " HorizontalAlignment="Left" Margin="53,42,0,0" VerticalAlignment="Top" Checked="radioChecked" Foreground="Black"/>
+                <RadioButton x:Name="StockYearRadionButton" Content="Year" HorizontalAlignment="Left" Margin="53,79,0,0" VerticalAlignment="Top" Checked="radioChecked" Foreground="Black"/>
+                <ComboBox x:Name="StockMonth" SelectedIndex="0" SelectedValuePath="Tag" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="194,35,0,0" Visibility="Hidden">
+                    <ComboBoxItem Content="January" Tag="1"/>
+                    <ComboBoxItem Content="Febuary" Tag="2"/>
+                    <ComboBoxItem Content="March" Tag="3"/>
+                    <ComboBoxItem Content="April" Tag="4"/>
+                    <ComboBoxItem Content="May" Tag="5"/>
+                    <ComboBoxItem Content="June" Tag="6"/>
+                    <ComboBoxItem Content="July" Tag="7"/>
+                    <ComboBoxItem Content="August" Tag="8"/>
+                    <ComboBoxItem Content="September" Tag="9"/>
+                    <ComboBoxItem Content="Octuber" Tag="10"/>
+                    <ComboBoxItem Content="November" Tag="11"/>
+                    <ComboBoxItem Content="December" Tag="12"/>
+                </ComboBox>
+                <ComboBox x:Name="StockYear" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" Margin="194,79,0,0" Visibility="Hidden"/>
+                <DataGrid x:Name="StockGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" Margin="10,128,0,21" HorizontalAlignment="Left" Width="1326">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding SellId}" Width="110" Header="Invoice Id" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding BuyerName}" Width="150" Header="Sold To" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding SellQuantity}" Width="150" Header="Amount Sold" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Price}" Width="100" Header="Price" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding SoldOn}" Header="Date" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Width="150" Header="Product Name" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Quantity}" Width="100" Header="Quantity Remaining" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Total}" Header="Total" Width="120" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="searchStockHistory" Content="Search" HorizontalAlignment="Left" Margin="376,35,0,0" VerticalAlignment="Top" Width="74" Click="searchStockHistoryClick" IsDefault="True" Style="{DynamicResource SquareButtonStyle}"  Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+                <Button x:Name="printSalesButton" Content="Print Sales Report" HorizontalAlignment="Left" Margin="343,71,0,0" VerticalAlignment="Top" Width="139" Click="printSalesButtonClick" Style="{DynamicResource SquareButtonStyle}"  Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+                <Button x:Name="printStockButton" Content="Print Inventory Report" HorizontalAlignment="Left" Margin="602,71,0,0" VerticalAlignment="Top" Width="178" Click="printStockButtonClick" Style="{DynamicResource SquareButtonStyle}"  Cursor="Hand" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal"/>
+
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Controls:MetroWindow>

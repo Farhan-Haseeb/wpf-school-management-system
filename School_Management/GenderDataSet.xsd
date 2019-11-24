@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GenderDataSet" targetNamespace="http://tempuri.org/GenderDataSet.xsd" xmlns:mstns="http://tempuri.org/GenderDataSet.xsd" xmlns="http://tempuri.org/GenderDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GenderDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="GenderDataSet" msprop:Generator_UserDSName="GenderDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GenderData" msprop:Generator_TableClassName="GenderDataDataTable" msprop:Generator_TableVarName="tableGenderData" msprop:Generator_RowChangedName="GenderDataRowChanged" msprop:Generator_TablePropName="GenderData" msprop:Generator_RowDeletingName="GenderDataRowDeleting" msprop:Generator_RowChangingName="GenderDataRowChanging" msprop:Generator_RowEvHandlerName="GenderDataRowChangeEventHandler" msprop:Generator_RowDeletedName="GenderDataRowDeleted" msprop:Generator_RowClassName="GenderDataRow" msprop:Generator_UserTableName="GenderData" msprop:Generator_RowEvArgName="GenderDataRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PlayGroupMale" msprop:Generator_ColumnVarNameInTable="columnPlayGroupMale" msprop:Generator_ColumnPropNameInRow="PlayGroupMale" msprop:Generator_ColumnPropNameInTable="PlayGroupMaleColumn" msprop:Generator_UserColumnName="PlayGroupMale" type="xs:short" minOccurs="0" />
+              <xs:element name="PlayGroupFemale" msprop:Generator_ColumnVarNameInTable="columnPlayGroupFemale" msprop:Generator_ColumnPropNameInRow="PlayGroupFemale" msprop:Generator_ColumnPropNameInTable="PlayGroupFemaleColumn" msprop:Generator_UserColumnName="PlayGroupFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="NurseryMale" msprop:Generator_ColumnVarNameInTable="columnNurseryMale" msprop:Generator_ColumnPropNameInRow="NurseryMale" msprop:Generator_ColumnPropNameInTable="NurseryMaleColumn" msprop:Generator_UserColumnName="NurseryMale" type="xs:short" minOccurs="0" />
+              <xs:element name="NurseryFemale" msprop:Generator_ColumnVarNameInTable="columnNurseryFemale" msprop:Generator_ColumnPropNameInRow="NurseryFemale" msprop:Generator_ColumnPropNameInTable="NurseryFemaleColumn" msprop:Generator_UserColumnName="NurseryFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="PrepMale" msprop:Generator_ColumnVarNameInTable="columnPrepMale" msprop:Generator_ColumnPropNameInRow="PrepMale" msprop:Generator_ColumnPropNameInTable="PrepMaleColumn" msprop:Generator_UserColumnName="PrepMale" type="xs:short" minOccurs="0" />
+              <xs:element name="PrepFemale" msprop:Generator_ColumnVarNameInTable="columnPrepFemale" msprop:Generator_ColumnPropNameInRow="PrepFemale" msprop:Generator_ColumnPropNameInTable="PrepFemaleColumn" msprop:Generator_UserColumnName="PrepFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="OneMale" msprop:Generator_ColumnVarNameInTable="columnOneMale" msprop:Generator_ColumnPropNameInRow="OneMale" msprop:Generator_ColumnPropNameInTable="OneMaleColumn" msprop:Generator_UserColumnName="OneMale" type="xs:short" minOccurs="0" />
+              <xs:element name="OneFemale" msprop:Generator_ColumnVarNameInTable="columnOneFemale" msprop:Generator_ColumnPropNameInRow="OneFemale" msprop:Generator_ColumnPropNameInTable="OneFemaleColumn" msprop:Generator_UserColumnName="OneFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="TwoMale" msprop:Generator_ColumnVarNameInTable="columnTwoMale" msprop:Generator_ColumnPropNameInRow="TwoMale" msprop:Generator_ColumnPropNameInTable="TwoMaleColumn" msprop:Generator_UserColumnName="TwoMale" type="xs:short" minOccurs="0" />
+              <xs:element name="TwoFemale" msprop:Generator_ColumnVarNameInTable="columnTwoFemale" msprop:Generator_ColumnPropNameInRow="TwoFemale" msprop:Generator_ColumnPropNameInTable="TwoFemaleColumn" msprop:Generator_UserColumnName="TwoFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="ThreeMale" msprop:Generator_ColumnVarNameInTable="columnThreeMale" msprop:Generator_ColumnPropNameInRow="ThreeMale" msprop:Generator_ColumnPropNameInTable="ThreeMaleColumn" msprop:Generator_UserColumnName="ThreeMale" type="xs:short" minOccurs="0" />
+              <xs:element name="ThreeFemale" msprop:Generator_ColumnVarNameInTable="columnThreeFemale" msprop:Generator_ColumnPropNameInRow="ThreeFemale" msprop:Generator_ColumnPropNameInTable="ThreeFemaleColumn" msprop:Generator_UserColumnName="ThreeFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="FourMale" msprop:Generator_ColumnVarNameInTable="columnFourMale" msprop:Generator_ColumnPropNameInRow="FourMale" msprop:Generator_ColumnPropNameInTable="FourMaleColumn" msprop:Generator_UserColumnName="FourMale" type="xs:short" minOccurs="0" />
+              <xs:element name="FourFemale" msprop:Generator_ColumnVarNameInTable="columnFourFemale" msprop:Generator_ColumnPropNameInRow="FourFemale" msprop:Generator_ColumnPropNameInTable="FourFemaleColumn" msprop:Generator_UserColumnName="FourFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="FiveMale" msprop:Generator_ColumnVarNameInTable="columnFiveMale" msprop:Generator_ColumnPropNameInRow="FiveMale" msprop:Generator_ColumnPropNameInTable="FiveMaleColumn" msprop:Generator_UserColumnName="FiveMale" type="xs:short" minOccurs="0" />
+              <xs:element name="FiveFemale" msprop:Generator_ColumnVarNameInTable="columnFiveFemale" msprop:Generator_ColumnPropNameInRow="FiveFemale" msprop:Generator_ColumnPropNameInTable="FiveFemaleColumn" msprop:Generator_UserColumnName="FiveFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="SixMale" msprop:Generator_ColumnVarNameInTable="columnSixMale" msprop:Generator_ColumnPropNameInRow="SixMale" msprop:Generator_ColumnPropNameInTable="SixMaleColumn" msprop:Generator_UserColumnName="SixMale" type="xs:short" minOccurs="0" />
+              <xs:element name="SixFemale" msprop:Generator_ColumnVarNameInTable="columnSixFemale" msprop:Generator_ColumnPropNameInRow="SixFemale" msprop:Generator_ColumnPropNameInTable="SixFemaleColumn" msprop:Generator_UserColumnName="SixFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="SevenMale" msprop:Generator_ColumnVarNameInTable="columnSevenMale" msprop:Generator_ColumnPropNameInRow="SevenMale" msprop:Generator_ColumnPropNameInTable="SevenMaleColumn" msprop:Generator_UserColumnName="SevenMale" type="xs:short" minOccurs="0" />
+              <xs:element name="SevenFemale" msprop:Generator_ColumnVarNameInTable="columnSevenFemale" msprop:Generator_ColumnPropNameInRow="SevenFemale" msprop:Generator_ColumnPropNameInTable="SevenFemaleColumn" msprop:Generator_UserColumnName="SevenFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="EightMale" msprop:Generator_ColumnVarNameInTable="columnEightMale" msprop:Generator_ColumnPropNameInRow="EightMale" msprop:Generator_ColumnPropNameInTable="EightMaleColumn" msprop:Generator_UserColumnName="EightMale" type="xs:short" minOccurs="0" />
+              <xs:element name="EightFemale" msprop:Generator_ColumnVarNameInTable="columnEightFemale" msprop:Generator_ColumnPropNameInRow="EightFemale" msprop:Generator_ColumnPropNameInTable="EightFemaleColumn" msprop:Generator_UserColumnName="EightFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="NineMale" msprop:Generator_ColumnVarNameInTable="columnNineMale" msprop:Generator_ColumnPropNameInRow="NineMale" msprop:Generator_ColumnPropNameInTable="NineMaleColumn" msprop:Generator_UserColumnName="NineMale" type="xs:short" minOccurs="0" />
+              <xs:element name="NineFemale" msprop:Generator_ColumnVarNameInTable="columnNineFemale" msprop:Generator_ColumnPropNameInRow="NineFemale" msprop:Generator_ColumnPropNameInTable="NineFemaleColumn" msprop:Generator_UserColumnName="NineFemale" type="xs:short" minOccurs="0" />
+              <xs:element name="TenMale" msprop:Generator_ColumnVarNameInTable="columnTenMale" msprop:Generator_ColumnPropNameInRow="TenMale" msprop:Generator_ColumnPropNameInTable="TenMaleColumn" msprop:Generator_UserColumnName="TenMale" type="xs:short" minOccurs="0" />
+              <xs:element name="TenFemale" msprop:Generator_ColumnVarNameInTable="columnTenFemale" msprop:Generator_ColumnPropNameInRow="TenFemale" msprop:Generator_ColumnPropNameInTable="TenFemaleColumn" msprop:Generator_UserColumnName="TenFemale" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

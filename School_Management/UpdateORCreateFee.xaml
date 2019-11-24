@@ -1,0 +1,62 @@
+﻿<Controls:MetroWindow
+        x:Class="School_Management.UpdateORCreateFee"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Update OR Create Fee" Height="500" Width="680" FontFamily="Tw Cen MT" FontSize="14" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded" ResizeMode="CanMinimize">
+    <Grid>
+        <TabControl x:Name="main" Background="White" Foreground="White">
+            <TabItem Header="Create" Background="White" Margin="48,43,-48,-43">
+                <Grid Margin="0,40,0,0">
+                    <Label x:Name="label" Content="Note: All fields are required" Height="24" Width="187" Margin="25,51,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Red" Background="White"/>
+
+                    <Label Content="Fee Name: " Height="25" Width="73" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25,100,0,0" Foreground="Black"/>
+                    <TextBox x:Name="feeName" Controls:TextBoxHelper.Watermark="Fee Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="103,99,0,0" HorizontalAlignment="Left"/>
+
+                    <TextBox x:Name="amount" Controls:TextBoxHelper.Watermark="Amount" Height="25" Margin="103,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196" PreviewTextInput="NumericOnly_PreviewTextInput"/>
+                    <Label Content="Amount: " Height="25" Width="74" Margin="24,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black"/>
+                    <TextBox x:Name="discountLimit" Controls:TextBoxHelper.Watermark="Discount Limit in 'Rs'" Height="25" Margin="103,181,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196" PreviewTextInput="NumericOnly_PreviewTextInput" />
+                    <Label Content="Discount: " Height="25" Width="74" Margin="24,181,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black"/>
+                    <Button x:Name="createbutton" Click="createbuttonClick" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="25,234,0,0"  Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontWeight="Normal" BorderThickness="1" FontFamily="Tw Cen MT"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Update" Background="White" Margin="68,43,-68,-43">
+                <Grid Margin="0,40,0,0">
+                    <Label Content="Fee Name:   " Height="25" Width="81" Margin="10,58,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black" Background="{x:Null}"/>
+                    <ComboBox x:Name="FeeName" SelectionChanged="FeeNameSelectionChanged" VerticalAlignment="Top" Margin="94,58,0,0" HorizontalAlignment="Left" Width="238" SelectedIndex="0"/>
+                    <Label x:Name="Notelabel" Content="Note: All fields are required" Width="187" Margin="11,29,0,0" HorizontalAlignment="Left" Foreground="Red" Background="White" Height="24" VerticalAlignment="Top"/>
+
+                    <Label Content="Fee Name: " Height="25" Width="73" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,100,0,0" Foreground="Black" Background="{x:Null}"/>
+                    <TextBox x:Name="UpdatefeeName" Controls:TextBoxHelper.Watermark="Fee Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="94,99,0,0" HorizontalAlignment="Left"/>
+
+                    <TextBox x:Name="updateAmount" Controls:TextBoxHelper.Watermark="Amount" Height="25" Margin="94,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196" PreviewTextInput="NumericOnly_PreviewTextInput"/>
+                    <Label Content="Amount: " Height="25" Width="74" Margin="11,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black" Background="{x:Null}"/>
+                    <TextBox x:Name="updateDiscountLimit" Controls:TextBoxHelper.Watermark="Discount Limit in 'Rs'" Height="25" Margin="94,181,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="196" PreviewTextInput="NumericOnly_PreviewTextInput"/>
+                    <Label Content="Discount: " Height="25" Width="74" Margin="11,180,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black" Background="{x:Null}"/>
+                    <Button x:Name="updatebutton" Click="updatebuttonClick" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="25,234,0,0" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Delete" Background="White" Margin="86,43,-86,-43">
+                <Grid Margin="0,20,0,0">
+                    <Label Content="Fee Name:   " Height="25" Width="81" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25,97,0,0" Foreground="Black"/>
+                    <ComboBox x:Name="DeleteFeeName" VerticalAlignment="Top" HorizontalAlignment="Left" Width="238" SelectedIndex="0" Margin="111,94,0,0"/>
+                    <Button x:Name="deletebutton" Click="deletebuttonClick" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="111,176,0,0" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal" BorderThickness="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="View" Background="White" Margin="110,43,-110,-43">
+                <DataGrid x:Name="feeGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,73,0,11" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True" HorizontalAlignment="Left" Width="644">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="feeIDrColumn" Binding="{Binding FeeID}" Width="30" Header="#" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="feeTitleColumn" Binding="{Binding FeeTitle}" Header="Fee Title" Width="150" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="amountColumn" Binding="{Binding Amount}" Header="Amount" Width="100" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="discountLimitColumn" Binding="{Binding DiscountLimit}" Header="Discount Limit" Width="150" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>

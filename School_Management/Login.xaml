@@ -1,0 +1,32 @@
+﻿<Window x:Class="School_Management.Login"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Login" Height="300" Width="850" WindowStyle="None" WindowStartupLocation="CenterScreen" AllowsTransparency="True" FontFamily="Tw Cen MT">
+    <Grid>
+        <Grid x:Name="titleGrid" MouseDown="TitleGridMouseDown" Visibility="Visible" Background="WhiteSmoke">
+            <Label  Content="SCHOOL OF ELITES" Margin="166,95,208,0" VerticalAlignment="Top" Foreground="#FFAC322F" FontSize="40" FontFamily="Tw Cen MT" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label  Content="Management System" VerticalAlignment="Top" Foreground="White" FontSize="26.667" FontFamily="Tw Cen MT" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF174276" Height="48"/>
+            <Label  Content="Peshawar Campus" Margin="222,154,270,0" VerticalAlignment="Top" Foreground="Black" FontSize="26.667" FontFamily="Tw Cen MT" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="92" Margin="14,95,0,0" VerticalAlignment="Top" Width="186" Source="Assets/School/TKS new logo.jpg" Stretch="Fill"/>
+            <CheckBox x:Name="checkBox" Content="Reset Password" HorizontalAlignment="Left" Margin="17,264,0,0" VerticalAlignment="Top" Height="24" Width="111" Checked="checkBox_Checked" Unchecked="checkBox_Unchecked"/>
+            <TextBox x:Name="resetUsername" Controls:TextBoxHelper.Watermark="Username" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="144,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" Background="{x:Null}" BorderThickness="0,0,0,1.5" BorderBrush="#FF4484D3" CaretBrush="{x:Null}" SelectionBrush="#FF4484D3" Visibility="Hidden"/>
+            <PasswordBox HorizontalContentAlignment="Left" x:Name="OldPassword" Controls:TextBoxHelper.Watermark="Old Password" HorizontalAlignment="Left" Height="23" Margin="144,266,0,0" VerticalAlignment="Top" Width="113" Background="{x:Null}" BorderThickness="0,0,0,1.5" BorderBrush="#FF4484D3" CaretBrush="{x:Null}" SelectionBrush="#FF4484D3" Visibility="Hidden"/>
+            <PasswordBox HorizontalContentAlignment="Left" x:Name="NewPassword" Controls:TextBoxHelper.Watermark="New Password" HorizontalAlignment="Left" Height="23" Margin="271,266,0,0" VerticalAlignment="Top" Width="115" Background="{x:Null}" BorderThickness="0,0,0,1.5" BorderBrush="#FF4484D3" CaretBrush="{x:Null}" SelectionBrush="#FF4484D3" Visibility="Hidden"/>
+            <Button Style="{DynamicResource SquareButtonStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="reset" Content="Reset" HorizontalAlignment="Left" Margin="415,0,0,13" VerticalAlignment="Bottom" Width="74" Height="7" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="resetButtonClick" IsDefault="True" Cursor="Hand" BorderThickness="1" Background="#FF24DE56" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.424,0.494" Visibility="Hidden"/>
+
+        </Grid>
+        <Grid x:Name="loginGrid" Background="WhiteSmoke" Visibility="Visible" Margin="582,51,0,0">
+            <TextBox x:Name="username" Controls:TextBoxHelper.Watermark="Username" Text="admin" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="57,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Background="{x:Null}" BorderThickness="0,0,0,1.5" BorderBrush="#FF4484D3" CaretBrush="{x:Null}" SelectionBrush="#FF4484D3"/>
+            <PasswordBox HorizontalContentAlignment="Left" x:Name="password" Controls:TextBoxHelper.Watermark="Password" HorizontalAlignment="Left" Height="23" Margin="57,109,0,0" VerticalAlignment="Top" Width="143" Background="{x:Null}" BorderThickness="0,0,0,1.5" BorderBrush="#FF4484D3" CaretBrush="{x:Null}" SelectionBrush="#FF4484D3"/>
+            <Button Style="{DynamicResource SquareButtonStyle}"  x:Name="close" Content="Close" HorizontalAlignment="Left" Margin="57,174,0,0" VerticalAlignment="Top" Width="77" Height="30" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="closeClick" IsCancel="True" Cursor="Hand" BorderThickness="1" Foreground="White" Background="#FFF02828" BorderBrush="{x:Null}"/>
+            <Label x:Name="status" Content="" HorizontalAlignment="Left" Margin="13,0,0,8" Foreground="#FFEA1212" Width="228" RenderTransformOrigin="0.5,0.5" Height="29" VerticalAlignment="Bottom"/>
+            <Button Style="{DynamicResource SquareButtonStyle}"  x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="158,174,0,0" VerticalAlignment="Top" Width="74" Height="30" Controls:ControlsHelper.ContentCharacterCasing="Normal" Click="loginButtonClick" IsDefault="True" Cursor="Hand" BorderThickness="1" Background="#FF24DE56" Foreground="White" BorderBrush="{x:Null}"/>
+        </Grid>
+
+    </Grid>
+</Window>

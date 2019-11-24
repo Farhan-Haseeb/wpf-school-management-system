@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="list" targetNamespace="http://tempuri.org/list.xsd" xmlns:mstns="http://tempuri.org/list.xsd" xmlns="http://tempuri.org/list.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="list" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="list" msprop:Generator_UserDSName="list">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="List" msprop:Generator_TableClassName="ListDataTable" msprop:Generator_TableVarName="tableList" msprop:Generator_TablePropName="List" msprop:Generator_RowDeletingName="ListRowDeleting" msprop:Generator_RowChangingName="ListRowChanging" msprop:Generator_RowEvHandlerName="ListRowChangeEventHandler" msprop:Generator_RowDeletedName="ListRowDeleted" msprop:Generator_UserTableName="List" msprop:Generator_RowChangedName="ListRowChanged" msprop:Generator_RowEvArgName="ListRowChangeEvent" msprop:Generator_RowClassName="ListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AdmissionNumber" msprop:Generator_ColumnVarNameInTable="columnAdmissionNumber" msprop:Generator_ColumnPropNameInRow="AdmissionNumber" msprop:Generator_ColumnPropNameInTable="AdmissionNumberColumn" msprop:Generator_UserColumnName="AdmissionNumber" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

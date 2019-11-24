@@ -1,0 +1,1353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A84D024-EA47-4504-B8D8-D6AF3A8F9EAA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>School_Management</RootNamespace>
+    <AssemblyName>School_Management</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\give\TKS\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>TKS School Management</ProductName>
+    <PublisherName>Syed Farhan Haseeb</PublisherName>
+    <DisallowUrlActivation>true</DisallowUrlActivation>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>School_Management.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>4327C220D9CE41887D2740D8EE30F2C42A91A879</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>School_Management_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=4.0.0.161, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.0.0-alpha0161\lib\net45\ControlzEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Engine.13.0.3501\lib\net20\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ClientDoc.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ClientDoc.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommLayer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommLayer.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommLayer.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonControls, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonControls.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommonControls.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CommonObjectModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CommonObjectModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CommonObjectModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Controllers.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Controllers.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.CubeDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.CubeDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.CubeDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.DataDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.DataSetConversion, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.DataSetConversion.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.DataSetConversion.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ObjectFactory, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ObjectFactory.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ObjectFactory.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.Prompting, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.Prompting.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.Prompting.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.ReportDefModel.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.ReportDefModel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportAppServer.XmlSerialize, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportAppServer.XmlSerialize.13.0.3501\lib\net20\CrystalDecisions.ReportAppServer.XmlSerialize.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.ReportSource.13.0.3501\lib\net20\CrystalDecisions.ReportSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.Shared.13.0.3501\lib\net20\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <HintPath>..\packages\CrystalReports.FlashControlV71.13.0.3501\lib\net20\FlashControlV71.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FontAwesomeWPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesomeWPF.1.0.0\lib\net45\FontAwesomeWPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Diagnostics.STrace, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SQLServer.DTSPipelineWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.SQLServer.DTSRuntimeWrap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.FileSystemTask, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SQLServer.ManagedDTS, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.WPF.Viewer.13.0.3501\lib\net20\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalReports.WPF.ViewerShared.13.0.3501\lib\net20\SAPBusinessObjects.WPF.ViewerShared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\CrystalReports.FlashControlV71.13.0.3501\lib\net20\ShockwaveFlashObjects.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management.Instrumentation">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.DataVisualization.3.5.50211.1\lib\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.0.0-alpha0161\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Presentation">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Workflow.Activities">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Workflow.Runtime">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.WorkflowServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Accounts.xaml.cs">
+      <DependentUpon>Accounts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Affidavit.xaml.cs">
+      <DependentUpon>Affidavit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Reports\Affidavit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Affidavit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\BirthCertificate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BirthCertificate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\CharacterCertificate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CharacterCertificate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\DefaultersList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefaultersList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\EmployeeReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\FeeSlip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeeSlip.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\FeeSlipSchema.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeeSlipSchema.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\FilledAffidavit.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FilledAffidavit.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\GenderReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenderReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\SLC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SLC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\SlipSchema1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SlipSchema.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\Stocks.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stocks.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\StockSales.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockSales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\Strength.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strength.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\StudentClassWise.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentClassWise.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Reports\Transaction.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Transaction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AssignFee.xaml.cs">
+      <DependentUpon>AssignFee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Backup.xaml.cs">
+      <DependentUpon>Backup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BCViewer.xaml.cs">
+      <DependentUpon>BCViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckForStudentsWhoDidnotPayResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassStrength.cs">
+      <DependentUpon>ClassStrength.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ClassStrength.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassStrength.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ClassStrengthResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CsvExport.cs" />
+    <Compile Include="DefaultersList.cs">
+      <DependentUpon>DefaultersList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultersList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefaultersList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultersListResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DefaultersPrintWindow.xaml.cs">
+      <DependentUpon>DefaultersPrintWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepositFee.xaml.cs">
+      <DependentUpon>DepositFee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="depositSlipViewer.xaml.cs">
+      <DependentUpon>depositSlipViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DiscountTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.xaml.cs">
+      <DependentUpon>Employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeDataSet.cs">
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Experiment_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Family.xaml.cs">
+      <DependentUpon>Family.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyInfoResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyMemberTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeeAssociationTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeeSlip.xaml.cs">
+      <DependentUpon>FeeSlip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FeeSlipDataSet.cs">
+      <DependentUpon>FeeSlipDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FeeSlipDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeeSlipDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FeeSlipViewDataByGrade_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeeSlipViewData_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeeSlipViewer.xaml.cs">
+      <DependentUpon>FeeSlipViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FeeTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenderCountResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenderCount_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenderDataSet.cs">
+      <DependentUpon>GenderDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GenderDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenderDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GetDiscountTableResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmployeeTableResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetFamilyTableResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetFeeTableResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetMessageTable_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSlipDataByYearResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSlipDataByYMResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSlipDataResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetStockTableResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceData.cs">
+      <DependentUpon>InvoiceData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InvoicesByYearResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoicesMYResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceViewer.xaml.cs">
+      <DependentUpon>InvoiceViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="list.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>list.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PayementHistoryResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.xaml.cs">
+      <DependentUpon>Payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentHistoryByYearResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentHistoryMYResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pending.cs">
+      <DependentUpon>pending.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pending.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pending.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Reports\pendingList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pendingList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PrintFeeSlipResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Promotion.xaml.cs">
+      <DependentUpon>Promotion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDataSet.cs">
+      <DependentUpon>SalesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SalesRecordMonthlyResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesRecordMonthly_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesRecordYearlyResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesRecordYearly_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolWiseAdmission.xaml.cs">
+      <DependentUpon>SchoolWiseAdmission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentInfoAllByFatherNameResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentInfoAllByIdResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentInfoAllByNameResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentInfoAllByPrimaryResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentInfoAllResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentInfoByCNIC_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentInfoByGradeResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentSchoolWiseResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="simpleViewer.xaml.cs">
+      <DependentUpon>simpleViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SLCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SLCDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SLCTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Slip.cs">
+      <DependentUpon>Slip.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Slip.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Slip.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SMS.xaml.cs">
+      <DependentUpon>SMS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SoldStockTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks.xaml.cs">
+      <DependentUpon>Stocks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StocksViewer.xaml.cs">
+      <DependentUpon>StocksViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StockTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDataSet.cs">
+      <DependentUpon>StudentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDiscount.xaml.cs">
+      <DependentUpon>StudentDiscount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDiscountAll_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDiscountByFee_Result.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDiscountTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFeeDataResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSearch.xaml.cs">
+      <DependentUpon>StudentSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SumOfTodaysTransactionResult.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateORCreateFee.xaml.cs">
+      <DependentUpon>UpdateORCreateFee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserTable.cs">
+      <DependentUpon>SchoolDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="viewer.xaml.cs">
+      <DependentUpon>viewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views.xaml.cs">
+      <DependentUpon>Views.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Withdraw.xaml.cs">
+      <DependentUpon>Withdraw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WithdrawRegister.xaml.cs">
+      <DependentUpon>WithdrawRegister.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Accounts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Affidavit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssignFee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Backup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BCViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DefaultersPrintWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepositFee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="depositSlipViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Family.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FeeSlip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FeeSlipViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InvoiceViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainScreen.xaml.cs">
+      <DependentUpon>MainScreen.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NewAdmission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Payment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Promotion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SchoolWiseAdmission.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="simpleViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SMS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Stocks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StocksViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentDiscount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateORCreateFee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="viewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Withdraw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WithdrawRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NewAdmission.xaml.cs">
+      <DependentUpon>NewAdmission.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Assets\Reports\Affidavit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Affidavit.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\BirthCertificate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BirthCertificate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\CharacterCertificate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CharacterCertificate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\DefaultersList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DefaultersList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\EmployeeReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EmployeeReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\FeeSlip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FeeSlip.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\FeeSlipSchema.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FeeSlipSchema.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\FilledAffidavit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FilledAffidavit.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\GenderReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GenderReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\pendingList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>pendingList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\SLC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SLC.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\SlipSchema.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SlipSchema1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\Stocks.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Stocks.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\StockSales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StockSales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\Strength.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Strength.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\StudentClassWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StudentClassWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Reports\Transaction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Transaction.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="SchoolDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SchoolDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="GenderDataSet.xsc">
+      <DependentUpon>GenderDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GenderDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GenderDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GenderDataSet.xss">
+      <DependentUpon>GenderDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="list.xsc">
+      <DependentUpon>list.xsd</DependentUpon>
+    </None>
+    <None Include="list.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>list.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="list.xss">
+      <DependentUpon>list.xsd</DependentUpon>
+    </None>
+    <None Include="SalesDataSet.xsc">
+      <DependentUpon>SalesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SalesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SalesDataSet.xss">
+      <DependentUpon>SalesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SLCDataSet.xsc">
+      <DependentUpon>SLCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SLCDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SLCDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SLCDataSet.xss">
+      <DependentUpon>SLCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StockDataSet.xsc">
+      <DependentUpon>StockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StockDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StockDataSet.xss">
+      <DependentUpon>StockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudentDataSet.xsc">
+      <DependentUpon>StudentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StudentDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StudentDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StudentDataSet.xss">
+      <DependentUpon>StudentDataSet.xsd</DependentUpon>
+    </None>
+    <Resource Include="Assets\FontAwesome\fontawesome-webfont.otf" />
+    <None Include="ClassStrength.xsc">
+      <DependentUpon>ClassStrength.xsd</DependentUpon>
+    </None>
+    <None Include="ClassStrength.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClassStrength.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ClassStrength.xss">
+      <DependentUpon>ClassStrength.xsd</DependentUpon>
+    </None>
+    <None Include="DefaultersList.xsc">
+      <DependentUpon>DefaultersList.xsd</DependentUpon>
+    </None>
+    <None Include="DefaultersList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DefaultersList.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DefaultersList.xss">
+      <DependentUpon>DefaultersList.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeDataSet.xsc">
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmployeeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeeDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="EmployeeDataSet.xss">
+      <DependentUpon>EmployeeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FeeSlipDataSet.xsc">
+      <DependentUpon>FeeSlipDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FeeSlipDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FeeSlipDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FeeSlipDataSet.xss">
+      <DependentUpon>FeeSlipDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceData.xsc">
+      <DependentUpon>InvoiceData.xsd</DependentUpon>
+    </None>
+    <None Include="InvoiceData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InvoiceData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="InvoiceData.xss">
+      <DependentUpon>InvoiceData.xsd</DependentUpon>
+    </None>
+    <None Include="pending.xsc">
+      <DependentUpon>pending.xsd</DependentUpon>
+    </None>
+    <None Include="pending.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pending.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="pending.xss">
+      <DependentUpon>pending.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="SchoolDataModel.edmx.diagram">
+      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="School_Management_TemporaryKey.pfx" />
+    <None Include="Slip.xsc">
+      <DependentUpon>Slip.xsd</DependentUpon>
+    </None>
+    <None Include="Slip.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Slip.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Slip.xss">
+      <DependentUpon>Slip.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\School\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\School\TKS new logo.jpg" />
+    <Resource Include="icon.ico" />
+    <Content Include="SchoolDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
+      <LastGenOutput>SchoolDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SchoolDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SchoolDataModel.edmx</DependentUpon>
+      <LastGenOutput>SchoolDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CrystalActiveXReportViewerLib13">
+      <Guid>{B816E96D-D151-4000-BADB-53A2D8F3FC65}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportViewerExportLib">
+      <Guid>{5C21A516-C6AC-42F2-A7B7-846FFE1B122A}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CrystalReportViewerWebReportSourceLib">
+      <Guid>{14173BA7-071D-4216-8C9B-EAB29A55E2D4}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SqlDest">
+      <Guid>{7DB5FD26-7901-4106-A199-E476EED300DE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.SqlServer.DtsMsg">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.DTSRuntimeWrap">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.ManagedDTS">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.Msxml6_interop">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.PipelineHost">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21192c1dfe2c4cf58f1244f18d68fa58" Name="Diagram1" ZoomLevel="102">
+        <EntityTypeShape EntityType="SchoolDataModel.FeeAssociationTable" Width="1.5" PointX="5.625" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDataModel.FeeTable" Width="1.5" PointX="8.125" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SchoolDataModel.InvoiceTable" Width="1.5" PointX="0.5" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="SchoolDataModel.FK_FeeAssociationTable_FeeTable" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SchoolDataModel.FamilyMemberTable" Width="1.5" PointX="0.5" PointY="4.5" />
+        <EntityTypeShape EntityType="SchoolDataModel.FamilyTable" Width="1.5" PointX="0.5" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="SchoolDataModel.FK_FamilyMemberTable_FamilyTable" />
+        <EntityTypeShape EntityType="SchoolDataModel.EmployeeTable" Width="1.5" PointX="8.125" PointY="6.625" />
+        <EntityTypeShape EntityType="SchoolDataModel.PaymentTable" Width="1.5" PointX="10.625" PointY="6.875" />
+        <AssociationConnector Association="SchoolDataModel.FK_PaymentTable_EmployeeTable" />
+        <EntityTypeShape EntityType="SchoolDataModel.DiscountTable" Width="1.5" PointX="5.875" PointY="5.875" />
+        <EntityTypeShape EntityType="SchoolDataModel.StudentDiscountTable" Width="1.5" PointX="5.75" PointY="8.25" />
+        <EntityTypeShape EntityType="SchoolDataModel.StudentTable" Width="1.875" PointX="3.125" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="SchoolDataModel.FK_StudentDiscountTable_DiscountTable" />
+        <AssociationConnector Association="SchoolDataModel.FK_FamilyMemberTable_StudentTable" />
+        <AssociationConnector Association="SchoolDataModel.FK_FeeAssociationTable_StudentTable" />
+        <AssociationConnector Association="SchoolDataModel.FK_InoviceTable_FeeAssociationTable" />
+        <AssociationConnector Association="SchoolDataModel.FK_StudentDiscountTable_StudentTable" />
+        <EntityTypeShape EntityType="SchoolDataModel.SoldStockTable" Width="1.5" PointX="13.25" PointY="2" />
+        <EntityTypeShape EntityType="SchoolDataModel.StockTable" Width="1.5" PointX="10.25" PointY="2" />
+        <EntityTypeShape EntityType="SchoolDataModel.UserTable" Width="1.5" PointX="8.375" PointY="4.75" />
+        <AssociationConnector Association="SchoolDataModel.FK_SoldStockTable_StockTable" />
+        <EntityTypeShape EntityType="SchoolDataModel.MessageTable" Width="1.5" PointX="10.375" PointY="4.75" />
+        <EntityTypeShape EntityType="SchoolDataModel.SLCTable" Width="1.5" PointX="3.375" PointY="12" />
+        <AssociationConnector Association="SchoolDataModel.FK_SLCTable_StudentTable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

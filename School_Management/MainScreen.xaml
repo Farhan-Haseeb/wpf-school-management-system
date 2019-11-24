@@ -1,0 +1,102 @@
+﻿<Controls:MetroWindow
+        x:Class="School_Management.MainWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:School_Management"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        ResizeMode="CanResizeWithGrip"
+        Closing="OnClosing"
+        WindowStartupLocation="CenterScreen"     
+        WindowState="Maximized" 
+        Loaded="MetroWindow_Loaded"
+        Activated="MainWindowActivated" 
+        Title="MainWindow" Height="740" Width="1380" FontFamily="Tw Cen MT" FontSize="14" Background="{x:Null}" 
+        >
+    <Grid Background="#FF14CADC">
+        <Grid x:Name="MainMenu" HorizontalAlignment="Left" Width="300" Background="#FF070E1D">
+            <Label x:Name="ButtonCloseMenu" Height="40" VerticalAlignment="Top" MouseDown="hideMainClick" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="40" Content="Hide" Foreground="Black" Cursor="Hand" Visibility="Hidden"/>
+            <Grid x:Name="options" Margin="0,105,0,134">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="43*"/>
+                    <ColumnDefinition Width="32*"/>
+                </Grid.ColumnDefinitions>
+                <Label FontFamily="FontAwesome" x:Name="AdmissionSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,10,0,0" Content="Admission Section" Background="#0029313F" MouseDown="AdmissionSectionMouseDown" Foreground="#FFB6B6B6" Cursor="Hand" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="FeeSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,50,0,0" Content="Fee Section" MouseDown="FeeSectionMouseDown" Background="#00000000" Foreground="#FFB6B6B6" Cursor="Hand" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="AccountSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,90,0,0" Content="Accounts Section" Background="#00000000" Cursor="Hand" MouseDown="AccountSectionMouseDown" Foreground="#FFB6B6B6" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="StockSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,130,0,0" Content="Stock Section" Background="#00000000" MouseDown="StockSectionMouseDown" Cursor="Hand" Foreground="#FFB6B6B6" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="EmployeeSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,170,0,0" Content="Employees Section" Background="#00000000" MouseDown="EmployeeSectionMouseDown" Cursor="Hand" Foreground="#FFB6B6B6" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="MessageSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,210,0,0" Content="SMS Section" Background="#00000000" Cursor="Hand" Foreground="#FFB6B6B6" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" MouseDown="MessageSectionMouseDown" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="PromptionSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,250,0,0" Content="Promotion" Background="#00000000" MouseDown="PromptionSectionMouseDown" Cursor="Hand" Foreground="#FFB6B6B6" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="Family" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,290,0,0" Content="Family" Background="#00000000" Foreground="#FFB6B6B6" MouseDown="FamilyMouseDown" Cursor="Hand" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="StudentDiscount" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,330,0,0" Content="Discount" Background="#00000000" Foreground="#FFB6B6B6" MouseDown="StudentDiscountMouseDown" Cursor="Hand" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+                <Label FontFamily="FontAwesome" x:Name="ViewSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,370,0,0" Content="Views" Background="#00000000" Foreground="#FFB6B6B6" MouseDown="ViewSectionMouseDown" Cursor="Hand" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Label x:Name="optionsTitle" HorizontalContentAlignment="Center"  Content="Navigation Panel" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Height="40" Width="300" FontSize="20" Foreground="White" FontFamily="Raleway ExtraLight"/>
+            <Label FontFamily="FontAwesome" x:Name="ShutdownLabel" Height="40" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,0,0,44" Content="Close" Background="#00000000" MouseDown="CloseMouseDown" Cursor="Hand" Foreground="#FFB6B6B6" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="BackupLabel" Height="40" VerticalAlignment="Bottom" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,0,0,84" Content="Backup" Background="#00000000" MouseDown="BackupMouseDown" Cursor="Hand" Foreground="#FFB6B6B6" MouseEnter="AnimationMouseEnter" MouseLeave="AnimationMouseLeave"/>
+            <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" x:Name="hideIcon" FontFamily="FontAwesome" Content="Label" Foreground="White" Width="40" MouseDown="hideIcon_MouseDown" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top"/>
+
+
+        </Grid>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ADMISSION MENU +++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <Grid x:Name="AdmissionMenu" HorizontalAlignment="Left" Width="260" Background="#D8525662" Margin="300,0,0,0" Visibility="Hidden" Panel.ZIndex="1">
+            <Label FontFamily="FontAwesome" x:Name="NewAdmission" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,15,0,0" Content="New Admission" Background="{x:Null}" MouseDown="NewAdmissionMouseDown" Foreground="#FFD6D6D6" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="Withdraw" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,54,0,0" Content="Withdraw" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="WithdrawMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="WithdrawRegister" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,94,0,0" Content="Withdrawal Register" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="WithdrawRegisterMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="SchoolWiseAdmission" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,134,0,0" Content="School Wise Admissions" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="SchoolWiseAdmissionMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="StudentSearch" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,174,0,0" Content="Student Search" Background="{x:Null}" MouseDown="StudentSearchMouseDown" Foreground="#FFD6D6D6" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+        </Grid>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++FEE MENU +++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <Grid x:Name="FeeMenu" HorizontalAlignment="Left" Width="260" Background="#D8525662" Margin="300,0,0,0" Visibility="Hidden" Panel.ZIndex="1">
+            <!--HorizontalAlignment="Left" Width="260" Background="#D8525662" Margin="300,0,0,0" Visibility="Hidden" Panel.ZIndex="1">-->
+            <Label FontFamily="FontAwesome" x:Name="AssignSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="2,15,0,0" Content="Assign Fee" Background="{x:Null}" MouseDown="AssignFeeMouseDown" Foreground="#FFD6D6D6" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="ManageSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,54,0,0" Content="Manage Fee" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="UpdateCreateMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="DepositSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,94,0,0" Content="Deposit Fee" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="DeopsitFeeMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="FeeSlipSection" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,139,0,0" Content="Fee Slips" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="FeeSlipMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <!--<Label Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,214,0,0" Content="Family" Background="{x:Null}" Foreground="#FFD6D6D6"/>-->
+        </Grid>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++EMPLOYEE MENU +++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <Grid x:Name="EmployeeMenu" HorizontalAlignment="Left" Width="260" Background="#D8525662" Margin="300,0,0,0" Visibility="Hidden" Panel.ZIndex="1">
+            <Label FontFamily="FontAwesome" x:Name="manageEmployee" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,10,0,0" Content="Manage Employee" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="manageEmployeeMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+            <Label FontFamily="FontAwesome" x:Name="employeePayment" Height="40" VerticalAlignment="Top" HorizontalContentAlignment="Left" Padding="20,0,0,0" VerticalContentAlignment="Center" Margin="0,55,0,0" Content="Payments" Background="{x:Null}" Foreground="#FFD6D6D6" MouseDown="employeePaymentMouseDown" MouseEnter="MenuAnimationMouseEnter" MouseLeave="MenuAnimationMouseLeave"/>
+        </Grid>
+
+        <Button x:Name="shutdownIcon" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="22,0,0,51"  Content="Shutdown" Width="78" Background="#FFDB2320" Foreground="White" HorizontalAlignment="Left" Height="36" VerticalAlignment="Bottom" Cursor="Hand" Click="shutdownIconClick" BorderBrush="{x:Null}" Visibility="Hidden"/>
+
+        <Grid Margin="0,302,63,51" x:Name="counter_grid" HorizontalAlignment="Right" Width="580" Background="#FF040404">
+            <Controls:Tile x:Name="studentCount" TitleFontSize="14" Width="278" Title="Total Students" Content="100" FontSize="48" Click="studentCountMouseDown" Cursor="Hand" Background="#FF5295DA" BorderThickness="10" Height="153" Margin="0,187,288,0" HorizontalAlignment="Right" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="White"/>
+            <Controls:Tile x:Name="ActiveCount" TitleFontSize="14" Width="278" Title="Current Students" Content="100" FontSize="48" Margin="0,28.814,288,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ActiveCountMouseDown" Background="#FF007ACC" Cursor="Hand" BorderThickness="10" UseLayoutRounding="False" Foreground="White" BorderBrush="{x:Null}" Height="153.186"/>
+            <Controls:Tile x:Name="TransactionSum" TitleFontSize="14" Width="278" Title="Today's Transactions" Content="100" FontSize="48" Margin="0,29,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#FF3378D8" Cursor="Hand" BorderThickness="10" BorderBrush="{x:Null}" Height="153" Foreground="White" />
+            <Controls:Tile x:Name="PendingCount" TitleFontSize="14" Width="278" Title="Pending Fee" Content="100" FontSize="48" Margin="0,182,10,0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="PendingCountMouseDown" Background="#FF235A9F" Cursor="Hand" BorderThickness="10" BorderBrush="{x:Null}" Height="153" Foreground="White"/>
+            <Label HorizontalContentAlignment="Right" VerticalContentAlignment="Center" x:Name="hideIcon_Copy" FontFamily="FontAwesome" Content="Label" Foreground="White" Width="40" MouseDown="hideIcon_GridMouseDown" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Margin="0,0,0,0" Background="Black" Visibility="Hidden"/>
+        </Grid>
+
+        <Grid Height="191" Margin="300,0,0,0" x:Name="titleGrid" VerticalAlignment="Top" Background="White">
+            <Image x:Name="image" Margin="26,18,0,0" Source="Assets/School/TKS new logo.jpg" Height="141" VerticalAlignment="Top" HorizontalAlignment="Left" Width="192" Stretch="Fill"/>
+            <Label x:Name="label2" Content="SCHOOL OF ELITES" HorizontalContentAlignment="Center" Margin="237,18,55,0" VerticalAlignment="Top" Height="89" Width="780" FontWeight="Bold" FontFamily="Dancing Script" FontSize="72" HorizontalAlignment="Center" RenderTransformOrigin="-53,0.5" Controls:ControlsHelper.ContentCharacterCasing="Upper" Foreground="Black" Background="White"/>
+            <Label x:Name="label2_Copy" Content="Peshawar Campus"  HorizontalContentAlignment="Center" Margin="411,111,0,0" VerticalAlignment="Top" Height="64" Width="320" FontFamily="Tw Cen MT Condensed" FontSize="53.333" HorizontalAlignment="Left" Visibility="Hidden"/>
+            <Label x:Name="label2_Copy1" Content="School Management System" HorizontalContentAlignment="Center" Margin="237,112,55,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Monotype Corsiva" FontSize="48" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Controls:ControlsHelper.ContentCharacterCasing="Upper" Foreground="Black" Background="{x:Null}"/>
+        </Grid>
+        <Label x:Name="showIcon" FontFamily="FontAwesome" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Content="Label" HorizontalAlignment="Left" Margin="5,259,0,0" VerticalAlignment="Top" MouseDown="showIconClick" Visibility="Hidden"/>
+        <Label x:Name="optionsTitle_Copy" HorizontalContentAlignment="Center"  Content="Developed By: Syed Farhan Haseeb" HorizontalAlignment="Left" Margin="322,0,0,23" VerticalAlignment="Bottom" Height="40" Width="422" FontSize="24" Foreground="White" FontFamily="Raleway SemiBold" FontWeight="Bold" Visibility="Hidden"/>
+        <Grid Height="62" x:Name="time_bar" Margin="300,190,0,0" VerticalAlignment="Top" Background="#FF69DC28">
+            <Grid.Effect>
+                <DropShadowEffect RenderingBias="Quality" Color="#FF6EC3D4" Opacity="0.825"/>
+            </Grid.Effect>
+
+            <Label x:Name="CalenderIcon" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="FontAwesome" FontSize="35" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="49" Margin="10,0,0,3" Width="66"/>
+
+            <TextBlock x:Name="textBlock" Margin="91,0,0,10" TextWrapping="Wrap" Text="Today:" FontSize="28" Height="36" VerticalAlignment="Bottom" FontWeight="Medium" HorizontalAlignment="Left" Width="75"/>
+
+            <Label x:Name="ClockIcon" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="FontAwesome" FontSize="40" HorizontalAlignment="Right" Margin="0,0,497,6" Width="66" Height="48" VerticalAlignment="Bottom"/>
+            <Label x:Name="DisplayTime" Margin="0,0,297,2" FontSize="30" Content="09:10:22 AM" HorizontalAlignment="Right" ContentStringFormat="yyyy-MM-dd HH:mm:ss" Height="46" VerticalAlignment="Bottom" FontWeight="Bold" Width="200"/>
+            <TextBlock x:Name="DisplayDate" Margin="0,0,40,13" TextWrapping="Wrap" FontSize="22" Text="Monday June 10, 2018" FontWeight="ExtraLight" HorizontalAlignment="Right" Width="260" Height="24" VerticalAlignment="Bottom"/>
+
+        </Grid>
+        <Label x:Name="showIcon_grid" FontFamily="FontAwesome" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Content="Label" HorizontalAlignment="Right" Margin="0,305,15,0" VerticalAlignment="Top" MouseDown="showIcon_gridClick" Foreground="Black" Visibility="Hidden"/>
+    </Grid>
+</Controls:MetroWindow>

@@ -1,0 +1,201 @@
+﻿<Controls:MetroWindow x:Class="School_Management.Views"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Views" Height="740" Width="1380" FontFamily="Tw Cen MT" FontSize="14" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="WindowLoaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="671*"/>
+            <ColumnDefinition Width="701*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Background="White" Margin="265,0,0,0" x:Name="menu" Grid.ColumnSpan="2">
+            <TabItem Header="Pending Fee" Background="White" Margin="75,50,-94,-50" HorizontalAlignment="Left" Width="162">
+                <Grid Margin="0,70,0,0">
+                    <Button x:Name="button" Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="SearchButtonClick" Margin="534,42,0,0" IsDefault="True" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+                    <Label Content="Month:  " Height="25" Width="63" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="125,39,0,0" Foreground="Black" Background="White"/>
+                    <ComboBox x:Name="ClassMonth" SelectedIndex="0" SelectedValuePath="Tag" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="193,39,0,0">
+                        <ComboBoxItem Content="January" Tag="January"/>
+                        <ComboBoxItem Content="Febuary" Tag="Febuary"/>
+                        <ComboBoxItem Content="March" Tag="March"/>
+                        <ComboBoxItem Content="April" Tag="April"/>
+                        <ComboBoxItem Content="May" Tag="May"/>
+                        <ComboBoxItem Content="June" Tag="June"/>
+                        <ComboBoxItem Content="July" Tag="July"/>
+                        <ComboBoxItem Content="August" Tag="August"/>
+                        <ComboBoxItem Content="September" Tag="September"/>
+                        <ComboBoxItem Content="Octuber" Tag="Octuber"/>
+                        <ComboBoxItem Content="November" Tag="November"/>
+                        <ComboBoxItem Content="December" Tag="December"/>
+                    </ComboBox>
+                    <Label Content="Year:  " Height="25" Width="51" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="337,39,0,0" Foreground="Black" Background="White"/>
+                    <ComboBox x:Name="ClassYear" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120" Margin="388,39,0,0"/>
+
+                    <DataGrid x:Name="StudentSearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,110,20,30" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Mobile}" Header="Mobile" Width="150" IsReadOnly="True"/>
+
+                            <DataGridTextColumn Binding="{Binding FeeTitle}" Header="Fee Title" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FeeAmount}" Header="Amount" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FeeMonth}" Header="Month" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Fine}" Header="Fine" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding AppliedOn}" Header="Applied On" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding DueDate}" Header="Due Date" Width="100" IsReadOnly="True"/>
+
+                            <DataGridTextColumn Binding="{Binding DateOfAdmission}" Header="Date Of Admission" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding AcademicYear}" Header="AcademicYear" Width="150" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid x:Name="SearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,590,0,0" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True" HorizontalAlignment="Left" Width="336" Height="68" VerticalAlignment="Top" Visibility="Hidden">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Binding="{Binding TotalStudents}" Width="150" Header="Total Students" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding EstimatedRecovery}" Header="Estimate dRecovery" Width="190" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="printButton" Content="Print" HorizontalAlignment="Left" Margin="670,42,0,0" VerticalAlignment="Top" Width="75" Click="printButtonClick" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Defaulters" Background="White" Margin="114,50,-114,-50">
+                <Grid Margin="0,70,0,0">
+                    <Label Content="Amount:   " Height="25" Width="65" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="68,56,0,0" Background="{x:Null}" Foreground="Black"/>
+                    <TextBox x:Name="DuesAmount" Controls:TextBoxHelper.Watermark="Amount" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="173" Margin="138,56,0,0"/>
+
+                    <!--<DataGrid x:Name="DefaulterGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,110,31,102" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True">-->
+                    <!--<DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Mobile}" Header="Mobile" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding InvoiceID}" Header="Invoice ID" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Dues}" Header="Dues" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding InvoiceDate}" Header="Invoice Date" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding PayingMonth}" Header="Paying Month" Width="150" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>-->
+                    <DataGrid x:Name="DefaulterGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,110,20,30" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True" Visibility="Hidden">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Mobile}" Header="Mobile" Width="150" IsReadOnly="True"/>
+
+                            <DataGridTextColumn Binding="{Binding FeeTitle}" Header="Fee Title" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FeeAmount}" Header="Amount" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FeeMonth}" Header="Month" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Fine}" Header="Fine" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding AppliedOn}" Header="Applied On" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding DueDate}" Header="Due Date" Width="100" IsReadOnly="True"/>
+
+                            <DataGridTextColumn Binding="{Binding DateOfAdmission}" Header="Date Of Admission" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding AcademicYear}" Header="AcademicYear" Width="150" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="defaulterSearch" Content="Search" Width="75" Margin="374,53,0,0" Click="defaulterSearchClick" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" IsDefault="True" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+                    <Button Content="Print" Width="75" Margin="478,54,0,0" Click="PrintDefaultersClick" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" IsDefault="True" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Strength Reports" Background="White" Margin="136,50,-136,-50">
+                <Grid Margin="0,70,0,0">
+                    <Button Content="Print Class Strength" Margin="104,133,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="194" Click="printStrengthClick" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+                    <Button Content="Print Student List Class Wise" Margin="456,133,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="208" Click="printStudentsClassWiseClick" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="104,182,0,0" TextWrapping="Wrap" Text="** The above button prints the report of Male/Female students in each grade and also shows the total of each grade and school." VerticalAlignment="Top" Height="112" Width="289" FontSize="18" Foreground="#FF06C10F" FontWeight="Bold" FontStretch="Expanded"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="456,182,0,0" TextWrapping="Wrap" Text="** The above button prints the student list according to their grade." VerticalAlignment="Top" Height="112" Width="289" FontSize="18" Foreground="#FFC10696" FontWeight="Bold" FontStretch="Expanded"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Certificates" Background="White" Margin="165,50,-165,-50">
+                <Grid Margin="0,70,0,0">
+                    <TextBlock LineHeight="45" Padding="15,10" Margin="10,49,0,0" Height="129" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Width="1081" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal" FontSize="16" Background="#FFE4E4E4"><Run Text="Certified that   "/><InlineUIContainer>
+                            <TextBox
+                                Width="202" TextWrapping="Wrap" 
+                                x:Name="StudentName" Height="30" FontFamily="Tw Cen MT"
+                                Controls:TextBoxHelper.Watermark="Student Name"
+                                />
+                        </InlineUIContainer><Run Text="   SO/DO  "/><InlineUIContainer>
+                            <TextBox
+                                Width="177" TextWrapping="Wrap" 
+                                x:Name="fatherName" Height="30" FontFamily="Tw Cen MT"
+                                Controls:TextBoxHelper.Watermark="Father Name"/>
+                        </InlineUIContainer><Run Text="   "/><Span Foreground="Black" FontSize="16"><Run Text="appeared for the SSC (Annual) Examination held in    "/><InlineUIContainer>
+                                <TextBox x:Name="examDate" Height="30" TextWrapping="Wrap" Width="141" 
+                                    FontFamily="Tw Cen MT"
+                                    Controls:TextBoxHelper.Watermark="Exam Date"/>
+                            </InlineUIContainer><Run Text="   under Roll No.  "/><InlineUIContainer>
+                                <TextBox x:Name="SchooRN" Height="23" TextWrapping="Wrap" 
+                                         Width="120" FontFamily="Tw Cen MT"
+                                         Controls:TextBoxHelper.Watermark="School Roll No."/>
+                            </InlineUIContainer><Run Text="    having B.I.S.E Registration No.  "/><InlineUIContainer>
+                                <TextBox x:Name="BISERN" Height="30" TextWrapping="Wrap"
+                                         Width="120" FontFamily="Tw Cen MT"
+                                         Controls:TextBoxHelper.Watermark="B.I.S.E Roll No."/>
+                            </InlineUIContainer><Run Text="    "/></Span><Span Foreground="Black"><Run Text="and has been declared successful accorging to the result by the B.I.S.E. His/Her character and moral conduct was Good."/></Span><LineBreak/><Span Foreground="Black" FontSize="16"><Run/></Span></TextBlock>
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="13,21,0,0" TextWrapping="Wrap" Text="Character Certificate:" VerticalAlignment="Top" Width="239" Height="23" FontWeight="Bold" FontSize="18"/>
+                    <Button Content="Print Certificate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Click="PrintCCClick" Margin="13,201,0,0" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" Text="Birth Certificate:" VerticalAlignment="Top" Width="166" Height="24" FontWeight="Bold" FontSize="18"/>
+
+                    <CheckBox x:Name="isWithdrawn" Content="Is still Student" HorizontalAlignment="Left" Margin="13,282,0,0" VerticalAlignment="Top" Width="107" Height="25" FontFamily="Tw Cen MT" FontSize="14" IsChecked="True"/>
+
+                    <TextBox x:Name="admissionNumber" HorizontalAlignment="Left" Height="23" Margin="204,281,0,0" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Student ID" VerticalAlignment="Top" PreviewTextInput="NumericOnly_PreviewTextInput" Width="128" LostFocus="admissionNumberLostFocus"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="125,284,0,0" TextWrapping="Wrap" Text="Student ID:" VerticalAlignment="Top" Width="79" Height="23" FontSize="16"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="355,282,0,0" TextWrapping="Wrap" Text="Student Name:" VerticalAlignment="Top" Width="109" Height="23" FontSize="16"/>
+                    <TextBlock x:Name="studentName" HorizontalAlignment="Left" Margin="469,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="129" IsEnabled="False" FontWeight="Bold" TextDecorations="Underline"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="628,282,0,0" TextWrapping="Wrap" Text="Father Name:" VerticalAlignment="Top" Width="99" Height="24" FontSize="16"/>
+                    <TextBlock x:Name="studentFatherName" HorizontalAlignment="Left" Margin="729,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="142" IsEnabled="False" FontWeight="Bold" TextDecorations="Underline"/>
+
+                    <TextBlock x:Name="studentDOB" HorizontalAlignment="Left" Margin="942,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="142" IsEnabled="False" FontWeight="Bold" TextDecorations="Underline"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="889,281,0,0" TextWrapping="Wrap" Text="DOB:" VerticalAlignment="Top" Width="48" Height="24" FontSize="16"/>
+
+                    <Button Content="Print Birth Certificate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Click="PrintBCClick" Margin="13,327,0,0" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,398,0,0" TextWrapping="Wrap" Text="School Leaving Certificate:" VerticalAlignment="Top" Width="220" Height="24" FontWeight="Bold" FontSize="18"/>
+
+                    <TextBox x:Name="SLCadmissionNumber" HorizontalAlignment="Left" Height="23" Margin="92,430,0,0" TextWrapping="Wrap" Controls:TextBoxHelper.Watermark="Student ID" VerticalAlignment="Top" PreviewTextInput="NumericOnly_PreviewTextInput" Width="128" LostFocus="SLCadmissionNumberLostFocus"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="13,432,0,0" TextWrapping="Wrap" Text="Student ID:" VerticalAlignment="Top" Width="79" Height="24" FontSize="16"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="238,431,0,0" TextWrapping="Wrap" Text="Student Name:" VerticalAlignment="Top" Width="109" Height="24" FontSize="16"/>
+                    <TextBlock x:Name="studentNameSLC" HorizontalAlignment="Left" Margin="352,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="129" IsEnabled="False" FontWeight="Bold" TextDecorations="Underline"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="511,431,0,0" TextWrapping="Wrap" Text="Father Name:" VerticalAlignment="Top" Width="99" Height="24" FontSize="16"/>
+                    <TextBlock x:Name="studentFatherNameSLC" HorizontalAlignment="Left" Margin="612,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="142" IsEnabled="False" FontWeight="Bold" TextDecorations="Underline"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="772,431,0,0" TextWrapping="Wrap" Text="DOB:" VerticalAlignment="Top" Width="48" Height="24" FontSize="16"/>
+                    <TextBlock x:Name="studentDOBSLC" HorizontalAlignment="Left" Margin="825,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="142" IsEnabled="False" FontWeight="Bold" TextDecorations="Underline"/>
+
+                    <Button Content="Print School Leaving Certificate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="209" Click="PrintSLCClick" Margin="13,476,0,0" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
+
+                </Grid>
+            </TabItem>
+            <TextBlock x:Name="textBlock1" Height="100" TextWrapping="Wrap" Text="TextBlock" Width="100"/>
+
+
+        </TabControl>
+        <Grid HorizontalAlignment="Left" Width="267" Background="#FF1E90D1">
+            <Label Content="Pending Fee" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,242,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave"  MouseDown="pendingFeeLabelMouseDown"/>
+            <Label Content="Defaulters" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,285,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave" MouseDown="defaultersLabelMouseDown"/>
+            <Label Content="Strength Reports" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,323,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave" MouseDown="strengthLabelMouseDown"/>
+            <Label Content="Certificates" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,361,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave" MouseDown="certificateLabelMouseDown"/>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>

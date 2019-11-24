@@ -1,0 +1,65 @@
+﻿<Controls:MetroWindow
+        x:Class="School_Management.Withdraw"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        mc:Ignorable="d"
+        Title="Withdraw" Height="740" Width="1380" FontFamily="Tw Cen MT" FontSize="14" Loaded="StudentSearchLoaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="White">
+
+        <Button x:Name="withdrawButton" Content="Withdraw" Style="{DynamicResource SquareButtonStyle}" HorizontalAlignment="Left" Margin="447,52,0,0" VerticalAlignment="Top" Width="89" Height="32" Click="withdrawButtonClick" Cursor="Hand" FontFamily="Tw Cen MT" mah:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1" FontWeight="Normal"/>
+        <TextBox x:Name="stdId" mah:TextBoxHelper.Watermark="Admission Number" Height="32" Margin="41,52,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" PreviewTextInput="NumericOnly_PreviewTextInput"/>
+        <Button x:Name="searchButton" Content="Search" Style="{DynamicResource SquareButtonStyle}" Margin="218,52,0,0" VerticalAlignment="Top" Height="32" Click="SearchButtonClick" IsDefault="True" Cursor="Hand" BorderThickness="1" FontFamily="Tw Cen MT" mah:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Left" Width="119"/>
+
+        <DataGrid x:Name="StudentSearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="30,122,30,30" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="{x:Null}" GridLinesVisibility="Horizontal" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn x:Name="SelectedStudent" Header="Select"  IsReadOnly="False"/>
+                <DataGridTextColumn x:Name="admissionNumberColumn" Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="studentNameColumn" Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="GenderColumn" Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="GradeColumn" Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="fNameColumn" Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="fatherCNICColumn" Binding="{Binding FatherCNIC}" Header="Father CNIC" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="desColmn" Binding="{Binding MotherName}" Header="Mother Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="exraTtleColumn" Binding="{Binding MotherCNIC}" Header="Mother CNIC" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="emergencyColumn" Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="eraColn" Binding="{Binding Phone}" Header="Phone" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dobColumn" Binding="{Binding DOB}" Header="DOB" IsReadOnly="True" Width="150"/>
+                <DataGridTextColumn x:Name="extaTitleColum" Binding="{Binding HomeAddress}" Header="Home Address" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="eraColun" Binding="{Binding Mobile}" Header="Mobile" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="FirstLanguageColumn" Binding="{Binding FirstLanguage}" Header="First Language" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="paidColumn" Binding="{Binding Nationality}" Header="Nationality" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="extaTitleColm" Binding="{Binding Religion}" Header="Religion" Width="150" IsReadOnly="True"/>
+
+                <!--<DataGridTextColumn x:Name="fatheroccupationColumn" Binding="{Binding FarherOccupation}" Header="Farher Occupation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="FatherDesignationColumn" Binding="{Binding FatherDesignation}" Header="Father Designation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="FatherWorkAddressColumn" Binding="{Binding FatherWorkAddress}" Header="Father Work Address" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="GuardianNameColumn" Binding="{Binding GuardianName}" Header="Guardian Name" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="traColumn" Binding="{Binding GuardianRelation}" Header="Guardian Relation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dusColumn" Binding="{Binding GuardianAddress}" Header="Guardian Address" Width="150" IsReadOnly="True"/>
+
+
+                <DataGridTextColumn x:Name="traClumn" Binding="{Binding MotherOccupation}" Header="Mother Occupation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dusCoumn" Binding="{Binding MotherDesignation}" Header="Mother Designation" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="dusCoun" Binding="{Binding MotherWorkAddress}" Header="Mother Work Address" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="deColmn" Binding="{Binding ReasonOfLeaving}" Header="Reason Of Leaving" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="eraTtleColumn" Binding="{Binding PlaceOfBirth}" Header="Place Of Birth" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="raClumn" Binding="{Binding PreviousSchoolName}" Header="Previous School" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="usCoumn" Binding="{Binding Studied}" Header="Studied From - To" Width="150" IsReadOnly="True"/>-->
+                <DataGridTextColumn x:Name="grandTotalColumn" Binding="{Binding Updated}" Header="Last Updated" Width="150" IsReadOnly="True"/>
+
+                <DataGridTextColumn x:Name="totalDuesColumn" Binding="{Binding DateOfAdmission}" Header="Date Of Admission" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="recievedColumn" Binding="{Binding AcademicYear}" Header="AcademicYear" Width="150" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Controls:MetroWindow>

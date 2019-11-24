@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SchoolDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DiscountTable">
+    <Key>
+      <PropertyRef Name="DiscountID" />
+    </Key>
+    <Property Name="DiscountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DiscountTitle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiscountAmount" Type="int" Nullable="false" />
+    <Property Name="DiscountByPercentage" Type="int" />
+  </EntityType>
+  <EntityType Name="EmployeeTable">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CNIC" Type="varchar" MaxLength="17" />
+    <Property Name="FatherName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Qualifications" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="200" />
+    <Property Name="PrimaryContact" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="SecondaryContact" Type="varchar" MaxLength="11" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="JoinedOn" Type="date" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyMemberTable">
+    <Key>
+      <PropertyRef Name="Count" />
+    </Key>
+    <Property Name="Count" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FamilyId" Type="int" Nullable="false" />
+    <Property Name="AdmissionNumber" Type="int" Nullable="false" />
+    <Property Name="AddedOn" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyTable">
+    <Key>
+      <PropertyRef Name="FamilyID" />
+    </Key>
+    <Property Name="FamilyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreatedOn" Type="date" Nullable="false" />
+    <Property Name="FamilyName" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FeeAssociationTable">
+    <Key>
+      <PropertyRef Name="AssociationID" />
+    </Key>
+    <Property Name="AssociationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FeeID" Type="int" Nullable="false" />
+    <Property Name="AdmissionNumber" Type="int" Nullable="false" />
+    <Property Name="FeeAmount" Type="int" Nullable="false" />
+    <Property Name="FeeMonth" Type="varchar" MaxLength="30" />
+    <Property Name="DueDate" Type="date" />
+    <Property Name="Fine" Type="int" />
+    <Property Name="AppliedOn" Type="date" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="FeeTable">
+    <Key>
+      <PropertyRef Name="FeeID" />
+    </Key>
+    <Property Name="FeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FeeTitle" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="DiscountLimit" Type="int" />
+  </EntityType>
+  <EntityType Name="InvoiceTable">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdmissionNumber" Type="int" Nullable="false" />
+    <Property Name="TotalFeeOfMonth" Type="int" Nullable="false" />
+    <Property Name="PayingMonth" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Paid" Type="int" Nullable="false" />
+    <Property Name="Dues" Type="int" Nullable="false" />
+    <Property Name="InvoiceDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MessageTable">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Body" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="PaymentTable">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Month" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="PaidOn" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SLCTable">
+    <Key>
+      <PropertyRef Name="SLCId" />
+    </Key>
+    <Property Name="SLCId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdmissionNumber" Type="int" />
+    <Property Name="DateIssued" Type="date" />
+    <Property Name="IssuedOnce" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="SoldStockTable">
+    <Key>
+      <PropertyRef Name="SellId" />
+    </Key>
+    <Property Name="SellId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SellQuantity" Type="int" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="StockId" Type="int" Nullable="false" />
+    <Property Name="SoldOn" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StockTable">
+    <Key>
+      <PropertyRef Name="StockId" />
+    </Key>
+    <Property Name="StockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="AddedOn" Type="date" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="TotalAmount" Type="int" />
+  </EntityType>
+  <EntityType Name="StudentDiscountTable">
+    <Key>
+      <PropertyRef Name="StudentDiscountID" />
+    </Key>
+    <Property Name="StudentDiscountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DiscountID" Type="int" Nullable="false" />
+    <Property Name="AdmissionNumber" Type="int" Nullable="false" />
+    <Property Name="FeeID" Type="int" Nullable="false" />
+    <Property Name="DiscountedFee" Type="int" />
+  </EntityType>
+  <EntityType Name="StudentTable">
+    <Key>
+      <PropertyRef Name="AdmissionNumber" />
+    </Key>
+    <Property Name="AdmissionNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AcademicYear" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Active" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="DateOfAdmission" Type="date" Nullable="false" />
+    <Property Name="DOB" Type="datetime" Nullable="false" />
+    <Property Name="Emergency" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="FatherName" Type="varchar" MaxLength="50" />
+    <Property Name="FatherCNIC" Type="varchar" MaxLength="16" />
+    <Property Name="FarherOccupation" Type="varchar" MaxLength="25" />
+    <Property Name="FatherDesignation" Type="varchar" MaxLength="20" />
+    <Property Name="FatherWorkAddress" Type="varchar" MaxLength="200" />
+    <Property Name="FirstLanguage" Type="varchar" MaxLength="10" />
+    <Property Name="Gender" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Grade" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="GuardianName" Type="varchar" MaxLength="50" />
+    <Property Name="GuardianRelation" Type="varchar" MaxLength="20" />
+    <Property Name="GuardianAddress" Type="varchar" MaxLength="200" />
+    <Property Name="HomeAddress" Type="varchar" MaxLength="200" />
+    <Property Name="Mobile" Type="varchar" MaxLength="11" />
+    <Property Name="MotherName" Type="varchar" MaxLength="50" />
+    <Property Name="MotherCNIC" Type="varchar" MaxLength="16" />
+    <Property Name="MotherOccupation" Type="varchar" MaxLength="25" />
+    <Property Name="MotherDesignation" Type="varchar" MaxLength="20" />
+    <Property Name="MotherWorkAddress" Type="varchar" MaxLength="200" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nationality" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Religion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ReasonOfLeaving" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="11" />
+    <Property Name="PlaceOfBirth" Type="varchar" MaxLength="25" />
+    <Property Name="PreviousSchoolName" Type="varchar" MaxLength="50" />
+    <Property Name="Studied" Type="varchar" MaxLength="20" />
+    <Property Name="Updated" Type="date" />
+    <Property Name="TimeOfAdmission" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="DateOfWithdraw" Type="date" />
+    <Property Name="StudentImage" Type="image" />
+    <Property Name="StudentFormBay" Type="image" />
+    <Property Name="StudentBC" Type="image" />
+    <Property Name="ClassAdmitedIn" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_FamilyMemberTable_FamilyTable">
+    <End Role="FamilyTable" Type="Self.FamilyTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FamilyMemberTable" Type="Self.FamilyMemberTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FamilyTable">
+        <PropertyRef Name="FamilyID" />
+      </Principal>
+      <Dependent Role="FamilyMemberTable">
+        <PropertyRef Name="FamilyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyMemberTable_StudentTable">
+    <End Role="StudentTable" Type="Self.StudentTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FamilyMemberTable" Type="Self.FamilyMemberTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Principal>
+      <Dependent Role="FamilyMemberTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeAssociationTable_FeeTable">
+    <End Role="FeeTable" Type="Self.FeeTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FeeAssociationTable" Type="Self.FeeAssociationTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeeTable">
+        <PropertyRef Name="FeeID" />
+      </Principal>
+      <Dependent Role="FeeAssociationTable">
+        <PropertyRef Name="FeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeAssociationTable_StudentTable">
+    <End Role="StudentTable" Type="Self.StudentTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FeeAssociationTable" Type="Self.FeeAssociationTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Principal>
+      <Dependent Role="FeeAssociationTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InoviceTable_FeeAssociationTable">
+    <End Role="StudentTable" Type="Self.StudentTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="InvoiceTable" Type="Self.InvoiceTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Principal>
+      <Dependent Role="InvoiceTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentTable_EmployeeTable">
+    <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="1" />
+    <End Role="PaymentTable" Type="Self.PaymentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeTable">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="PaymentTable">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SoldStockTable_StockTable">
+    <End Role="StockTable" Type="Self.StockTable" Multiplicity="1" />
+    <End Role="SoldStockTable" Type="Self.SoldStockTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockTable">
+        <PropertyRef Name="StockId" />
+      </Principal>
+      <Dependent Role="SoldStockTable">
+        <PropertyRef Name="StockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentDiscountTable_DiscountTable">
+    <End Role="DiscountTable" Type="Self.DiscountTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StudentDiscountTable" Type="Self.StudentDiscountTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiscountTable">
+        <PropertyRef Name="DiscountID" />
+      </Principal>
+      <Dependent Role="StudentDiscountTable">
+        <PropertyRef Name="DiscountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentDiscountTable_StudentTable">
+    <End Role="StudentTable" Type="Self.StudentTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StudentDiscountTable" Type="Self.StudentDiscountTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Principal>
+      <Dependent Role="StudentDiscountTable">
+        <PropertyRef Name="AdmissionNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddMembersToFamily" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FamilyID" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="AutoAssignFeeUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+    <Parameter Name="FeeAmount" Type="int" Mode="In" />
+    <Parameter Name="Fine" Type="int" Mode="In" />
+    <Parameter Name="DueDate" Type="date" Mode="In" />
+    <Parameter Name="AppliedON" Type="date" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AutoDeleteFee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CalculateDues" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckForStudentsWhoDidnotPay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CheckIfPaid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="ClassAssignFeeUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+    <Parameter Name="FeeAmount" Type="int" Mode="In" />
+    <Parameter Name="Fine" Type="int" Mode="In" />
+    <Parameter Name="DueDate" Type="date" Mode="In" />
+    <Parameter Name="AppliedON" Type="date" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ClassDeleteFee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ClassStrength" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DefaultersList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Dues" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteDiscount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteFamily" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FamilyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteMember" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DicountExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Experiment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FamilyInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FamilyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FeeAssignedTo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="FeePaid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="FeeSlipViewData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="FeeSlipViewDataByGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="grade" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GenderCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetDiscountTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetEmployeeTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetFamilyTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetFeeTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetMessageTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetSlipData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetSlipDataByYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSlipDataByYM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="Month" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetStockTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="InvoicesByYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InvoicesMY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ListOfStudentsWhoDidnotPay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="PayementHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PaymentHistoryByYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PaymentHistoryMY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PrintDepositSlip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="Month" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="PrintFeeSlip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PromoteStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="Grade" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="RemoveOrRestore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="Active" Type="varchar" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SalesRecordMonthly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SalesRecordYearly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentInfoAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Active" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentInfoAllByFatherName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FatherName" Type="varchar" Mode="In" />
+    <Parameter Name="Active" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentInfoAllById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="Active" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentInfoAllByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Active" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentInfoAllByPrimary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Emergency" Type="varchar" Mode="In" />
+    <Parameter Name="Active" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentInfoByCNIC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CNIC" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentInfoByGrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Active" Type="varchar" Mode="In" />
+    <Parameter Name="Grade" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchStudentSchoolWise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SchoolName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="StudentDiscountByFee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="feeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="StudentFeeData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SumOfTodaysTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UndoFeePaid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FeeMonth" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateDiscount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdmissionNumber" Type="int" Mode="In" />
+    <Parameter Name="FeeID" Type="int" Mode="In" />
+    <Parameter Name="DiscountID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Body" Type="varchar" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="SchoolDataModelStoreContainer">
+    <EntitySet Name="DiscountTable" EntityType="Self.DiscountTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeTable" EntityType="Self.EmployeeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyMemberTable" EntityType="Self.FamilyMemberTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyTable" EntityType="Self.FamilyTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeAssociationTable" EntityType="Self.FeeAssociationTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeTable" EntityType="Self.FeeTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceTable" EntityType="Self.InvoiceTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MessageTable" EntityType="Self.MessageTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentTable" EntityType="Self.PaymentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SLCTable" EntityType="Self.SLCTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SoldStockTable" EntityType="Self.SoldStockTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockTable" EntityType="Self.StockTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentDiscountTable" EntityType="Self.StudentDiscountTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentTable" EntityType="Self.StudentTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_FamilyMemberTable_FamilyTable" Association="Self.FK_FamilyMemberTable_FamilyTable">
+      <End Role="FamilyTable" EntitySet="FamilyTable" />
+      <End Role="FamilyMemberTable" EntitySet="FamilyMemberTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyMemberTable_StudentTable" Association="Self.FK_FamilyMemberTable_StudentTable">
+      <End Role="StudentTable" EntitySet="StudentTable" />
+      <End Role="FamilyMemberTable" EntitySet="FamilyMemberTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeAssociationTable_FeeTable" Association="Self.FK_FeeAssociationTable_FeeTable">
+      <End Role="FeeTable" EntitySet="FeeTable" />
+      <End Role="FeeAssociationTable" EntitySet="FeeAssociationTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeAssociationTable_StudentTable" Association="Self.FK_FeeAssociationTable_StudentTable">
+      <End Role="StudentTable" EntitySet="StudentTable" />
+      <End Role="FeeAssociationTable" EntitySet="FeeAssociationTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InoviceTable_FeeAssociationTable" Association="Self.FK_InoviceTable_FeeAssociationTable">
+      <End Role="StudentTable" EntitySet="StudentTable" />
+      <End Role="InvoiceTable" EntitySet="InvoiceTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentTable_EmployeeTable" Association="Self.FK_PaymentTable_EmployeeTable">
+      <End Role="EmployeeTable" EntitySet="EmployeeTable" />
+      <End Role="PaymentTable" EntitySet="PaymentTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SoldStockTable_StockTable" Association="Self.FK_SoldStockTable_StockTable">
+      <End Role="StockTable" EntitySet="StockTable" />
+      <End Role="SoldStockTable" EntitySet="SoldStockTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentDiscountTable_DiscountTable" Association="Self.FK_StudentDiscountTable_DiscountTable">
+      <End Role="DiscountTable" EntitySet="DiscountTable" />
+      <End Role="StudentDiscountTable" EntitySet="StudentDiscountTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentDiscountTable_StudentTable" Association="Self.FK_StudentDiscountTable_StudentTable">
+      <End Role="StudentTable" EntitySet="StudentTable" />
+      <End Role="StudentDiscountTable" EntitySet="StudentDiscountTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

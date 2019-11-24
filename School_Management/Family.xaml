@@ -1,0 +1,97 @@
+﻿<Controls:MetroWindow x:Class="School_Management.Family"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        mc:Ignorable="d"
+        Title="Family" Height="740" Width="1380" FontFamily="Tw Cen MT" FontSize="16" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="WindowLoaded" Activated="FamilyWindowActivated">
+    <Grid>
+        <TabControl Background="White" Foreground="Black" Margin="269,0,0,0" x:Name="menu">
+            <TabItem Header="Create Family" Background="White" Foreground="White" Cursor="Hand" Margin="28,70,-28,-70">
+                <Grid Margin="0,70,0,0">
+                    <Label x:Name="label" Content="Family Name: " Height="26" Width="109" Margin="45,42,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black"/>
+                    <TextBox x:Name="familyName" Controls:TextBoxHelper.Watermark="Family Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="159,42,0,0" HorizontalAlignment="Left"/>
+
+                    <RadioButton x:Name="fNameRadioButton" Content="Father Name: " Height="26" Width="109" Margin="416,42,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Checked="RadioButtonChecked" Foreground="Black"/>
+                    <TextBox x:Name="fName" Controls:TextBoxHelper.Watermark="Search By Father Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="169" Margin="406,73,0,0" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <RadioButton x:Name="sNameRadioButton" Content="Student Name: " Height="26" Width="109" Margin="593,42,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Checked="RadioButtonChecked" Foreground="Black"/>
+                    <TextBox x:Name="sName" Controls:TextBoxHelper.Watermark="Search By Student Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="173" Margin="580,73,0,0" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <Button x:Name="searchButton" Content="Search" HorizontalAlignment="Left" Margin="752,42,0,0" VerticalAlignment="Top" Width="75" Click="searchButtonClick" IsDefault="True" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+
+                    <DataGrid x:Name="StudentSearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" HorizontalAlignment="Left" Width="832" Margin="255,118,0,124">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn x:Name="SelectedStudent" Header="Select"  IsReadOnly="False"/>
+                            <DataGridTextColumn x:Name="admissionNumberColumn" Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="studentNameColumn" Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="fNameColumn" Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="desColmn" Binding="{Binding MotherName}" Header="Mother Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="GenderColumn" Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="GradeColumn" Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="dobColumn" Binding="{Binding DOB}" Header="DOB" IsReadOnly="True" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="createbutton" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="68,144,0,0" Click="createButtonClick" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Add Member to Family" Background="White" Foreground="White" BorderBrush="#CCFFFFFF" Cursor="Hand" Margin="56,70,-56,-70">
+                <Grid Margin="0,70,0,0">
+                    <Label Content="Family Name: " Height="26" Width="109" Margin="45,42,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black"/>
+                    <ComboBox x:Name="families" VerticalAlignment="Top" Width="196" Margin="159,42,0,0" SelectionChanged="familiesSelectionChanged" HorizontalAlignment="Left"/>
+
+                    <RadioButton x:Name="AddfNameRadioButton" Content="Father Name: " Height="26" Width="109" Margin="490,42,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Checked="AddRadioButtonChecked" Foreground="Black"/>
+                    <TextBox x:Name="AddfName" Controls:TextBoxHelper.Watermark="Search By Father Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="169" Margin="491,73,0,0" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <RadioButton x:Name="AddsNameRadioButton" Content="Student Name: " Height="26" Width="109" Margin="685,42,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Checked="AddRadioButtonChecked" Foreground="Black"/>
+                    <TextBox x:Name="AddsName" Controls:TextBoxHelper.Watermark="Search By Student Name" MaxLength="50" Height="25" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" Width="196" Margin="681,73,0,0" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <Button x:Name="queryButton" Content="Search" HorizontalAlignment="Left" Margin="835,42,0,0" VerticalAlignment="Top" Width="75" Click="queryButtonClick" IsDefault="True" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+
+                    <DataGrid x:Name="SearchGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" HorizontalAlignment="Left" Width="832" Margin="255,118,0,143">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn x:Name="AddStudent" Header="Select"  IsReadOnly="False"/>
+                            <DataGridTextColumn Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding MotherName}" Header="Mother Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding DOB}" Header="DOB" IsReadOnly="True" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="addbutton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="60,148,0,0" Click="AddButtonClick" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="View or Remove" Background="White" Foreground="White" Cursor="Hand" Margin="84,70,-84,-70">
+                <Grid Margin="0,70,0,0">
+                    <Label Content="Family Name: " Height="26" Width="109" Margin="43,57,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Black" Background="{x:Null}"/>
+                    <ComboBox x:Name="famalia" VerticalAlignment="Top" Width="196" Margin="157,57,0,0" SelectionChanged="famaliaSelectionChanged" HorizontalAlignment="Left"/>
+
+                    <DataGrid x:Name="FindGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" HorizontalAlignment="Left" Width="1022" Margin="43,126,0,116">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn x:Name="RemoveStudent" Header="Select"  IsReadOnly="False"/>
+                            <DataGridTextColumn Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding MotherName}" Header="Mother Name" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Gender}" Header="Gender" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding FamilyName}" Header="Family Name" IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn Binding="{Binding AddedOn}" Header="Added On" IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn Binding="{Binding CreatedOn}" Header="Created On" IsReadOnly="True" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="removeButton" Content="Remove   Member" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="603,57,0,0" Click="removeButtonClick" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                    <Button x:Name="familyButton" Content="Remove   Family" HorizontalAlignment="Left" VerticalAlignment="Top" Width="134" Margin="433,57,0,0" Click="familyButtonClick" Style="{DynamicResource SquareButtonStyle}" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Grid HorizontalAlignment="Left" Width="267" Background="#FF1E90D1">
+            <Label Content="Create Family" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,242,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave"  MouseDown="createLabelMouseDown"/>
+            <Label Content="Add Members to Family" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,285,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave" MouseDown="addLabelMouseDown"/>
+            <Label Content="View Or Remove" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,328,0,0" Width="267" Height="38" Foreground="White" FontSize="17.333" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave" MouseDown="VRLabelMouseDown"/>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
+    
+    

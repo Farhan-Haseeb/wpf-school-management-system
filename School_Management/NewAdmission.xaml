@@ -1,0 +1,202 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:School_Management"
+        xmlns:controlzex="urn:controlzex"
+    xmlns:drawing="clr-namespace:System.Drawing;assembly=System.Drawing"
+    xmlns:visualizationToolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+    x:Class="School_Management.NewAdmission"
+        mc:Ignorable="d"
+        Title="NewAdmission" Height="740" Width="1380" FontFamily="Tw Cen MT" FontSize="14" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="LoadingWindow">
+
+    <Controls:MetroWindow.Resources>
+        <visualizationToolkit:StringFormatConverter x:Key="StringFormatConverter"/>
+    </Controls:MetroWindow.Resources>
+
+    <Grid>
+
+        <Label Content="Campus:" Height="25" Width="65" Margin="39,44,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Hidden"/>
+        <Label Content="Bakshi Pul Peshawar Campus" Height="25" Width="155" Margin="150,43,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0,0,0,2" BorderBrush="#FF75F51C" Visibility="Hidden"/>
+
+        <TabControl x:Name="form" Margin="272,0,0,0" Controls:TabControlHelper.UnderlineMouseOverSelectedBrush="{x:Null}" Controls:TabControlHelper.UnderlineSelectedBrush="{x:Null}" Controls:TabControlHelper.UnderlineMouseOverBrush="{x:Null}" Controls:TabControlHelper.UnderlineBrush="{x:Null}" Controls:TabControlHelper.Underlined="SelectedTabItem" Background="{x:Null}" Foreground="{x:Null}" OverridesDefaultStyle="True" >
+            <TabItem Header="Personal Information" BorderBrush="{x:Null}" Controls:ControlsHelper.HeaderFontSize="20" Margin="96,63,-96,-63" Foreground="{x:Null}" Controls:TabControlHelper.UnderlineMouseOverBrush="{x:Null}" Controls:TabControlHelper.UnderlineBrush="{x:Null}" Controls:TabControlHelper.UnderlineMouseOverSelectedBrush="{x:Null}" Controls:TabControlHelper.UnderlineSelectedBrush="{x:Null}" TabIndex="1" IsSelected="True">
+                <Grid Margin="0,70,0,0" Background="#FFF7F7F7">
+                    <Border Margin="883,29,0,0" BorderThickness="1" BorderBrush="#FF3E3E3E" HorizontalAlignment="Left" Width="155" Height="127" VerticalAlignment="Top">
+                        <Grid>
+                            <Image  x:Name="studentImage" Stretch="Fill" Margin="5"/>
+                        </Grid>
+                    </Border>
+                    <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="793,101,0,0" x:Name="stdImageClear" VerticalAlignment="Top" Width="67" Click="stdClearImage"  FontFamily="Tw Cen MT" FontSize="14" FontWeight="Normal" />
+                    <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="793,131,0,0" x:Name="btnBrowse" VerticalAlignment="Top" Width="67" Click="BrowseButtonClick"  FontFamily="Tw Cen MT" FontSize="14" FontWeight="Normal" />
+
+                    <Label x:Name="DateDisplay" Content="" Height="25" Width="91" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="79,50,0,0"/>
+                    <Label Content="Date:" Height="25" Width="45" Margin="30,49,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <Label Content="Academic Year: " Height="25" Width="118" Margin="180,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="AcademicYearDisplay" Controls:TextBoxHelper.Watermark="Academic Year" Height="25" Margin="303,49,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96" TabIndex="1"/>
+
+                    <Label Content="Admission Number: " Height="25" Width="136" Margin="452,49,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="1.838,0.76"/>
+                    <TextBox x:Name="AdmissionNumberDisplay" Controls:TextBoxHelper.Watermark="Admission Number" Height="25" Margin="593,49,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121" PreviewTextInput="NumericOnly_PreviewTextInput" LostFocus="ResetOnLostFocus" TabIndex="2"/>
+
+                    <Label Content="Student's Name: " Height="25" Width="127" Margin="30,188,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="StudentNameText" Controls:TextBoxHelper.Watermark="Student's Name" MaxLength="50" Height="25" Margin="162,188,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" TabIndex="3" FontFamily="Segoe UI, Lucida Sans Unicode, Verdana" />
+
+                    <Label Content="Date of Birth: " Height="25" Width="87" Margin="615,188,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="DOBText" Controls:TextBoxHelper.Watermark="DD/MM/YYYY" KeyDown="DOBText_KeyDown" KeyUp="DOBText_KeyUp" MaxLength="10" Height="25" Margin="711,188,0,0" VerticalAlignment="Top" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="114" TabIndex="6"/>
+
+                    <Label Content="Place of Birth: " Height="25" Width="91" Margin="697,277,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="PlaceOfBirthText" Controls:TextBoxHelper.Watermark="Palce of Birth" MaxLength="16" Height="25" Margin="793,278,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" TabIndex="13"/>
+
+                    <Label Content="Gender: " Height="25" Width="60" Margin="390,188,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <RadioButton x:Name="MaleRadioButton" Content="Male" Margin="459,190,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62" TabIndex="4" Height="23"/>
+                    <RadioButton x:Name="FemaleRadioButton" Content="Female" Margin="526,190,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="71" TabIndex="5" Height="23"/>
+
+                    <Label Content="Religion: " Height="25" Width="61" Margin="838,188,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <Label Content="First Language: " Height="26" Width="106" Margin="30,323,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FirstLanguageText" Controls:TextBoxHelper.Watermark="First Language" MaxLength="16" Height="25" Margin="141,323,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="137" TabIndex="14"/>
+
+                    <Label Content="Nationality: " Height="25" Width="82" Margin="302,323,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    <Label Content="Father's Name: " Height="25" Width="118" Margin="238,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FatherNameText" Controls:TextBoxHelper.Watermark="Father's Name" MaxLength="50" Height="25" Margin="361,237,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" TabIndex="9"/>
+
+                    <Label Content="Father's CNIC: " Height="25" Width="116" Margin="582,237,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FatherCNICText" Controls:TextBoxHelper.Watermark="Father's CNIC" KeyUp="FatherCNICText_KeyUp" MaxLength="15" Height="25" Margin="703,237,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" TabIndex="10" LostFocus="FatherCNICText_LostFocus"/>
+
+                    <Label Content="Mother's Name: " Height="25" Width="106" Margin="30,278,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="MotherNameText" Controls:TextBoxHelper.Watermark="Mother's Name" MaxLength="50" Height="25" Margin="141,278,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" TabIndex="11"/>
+
+                    <Label Content="Mother's CNIC:" Height="25" Width="110" Margin="358,278,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="MotherCNICText" Controls:TextBoxHelper.Watermark="Mother's CNIC" KeyUp="MotherCNICText_KeyUp" MaxLength="15" Height="25" Margin="468,278,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="196" TabIndex="12"/>
+
+                    <Label Content="Address:    " Height="25" Width="63" Margin="570,323,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="HomeAddressText" Controls:TextBoxHelper.Watermark="Full Address" MaxLength="200" Height="58" Margin="638,323,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" HorizontalAlignment="Left" Width="400" TabIndex="16" />
+
+                    <Label Content="Phone:" Height="26" Width="81" Margin="30,375,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="PhoneText" Controls:TextBoxHelper.Watermark="Phone" MaxLength="11" Height="25" Margin="116,377,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="162" TabIndex="17"/>
+
+                    <Label Content="Mobile:" Height="25" Width="81" Margin="30,421,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="EmergencyText" Controls:TextBoxHelper.Watermark="Mobile" MaxLength="11" Height="25" Margin="116,421,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="164" TabIndex="19"/>
+
+                    <Label Content="Emergency:" Height="25" Width="86" Margin="294,375,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="MobileText" Controls:TextBoxHelper.Watermark="Emergency" MaxLength="11" Height="25" Margin="385,375,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="NumericOnly_PreviewTextInput" HorizontalAlignment="Left" Width="162" TabIndex="18"/>
+
+                    <Label Content="Grade:" Height="25" Width="58" Margin="30,237,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="Grade" SelectedIndex="0" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="95,237,0,0" VerticalAlignment="Top" Width="120" TabIndex="8" >
+                        <ComboBoxItem Content="Play Group" Tag="Play Group"/>
+                        <ComboBoxItem Content="Nursery" Tag="Nursery"/>
+                        <ComboBoxItem Content="Prep" Tag="Prep"/>
+                        <ComboBoxItem Content="1" Tag="1"/>
+                        <ComboBoxItem Content="2" Tag="2"/>
+                        <ComboBoxItem Content="3" Tag="3"/>
+                        <ComboBoxItem Content="4" Tag="4"/>
+                        <ComboBoxItem Content="5" Tag="5"/>
+                        <ComboBoxItem Content="6" Tag="6"/>
+                        <ComboBoxItem Content="7" Tag="7"/>
+                        <ComboBoxItem Content="8" Tag="8"/>
+                        <ComboBoxItem Content="9" Tag="9"/>
+                        <ComboBoxItem Content="10" Tag="10"/>
+                    </ComboBox>
+
+                    <Button x:Name="PINextButton" Style="{DynamicResource MetroCircleButtonStyle}" Content="Next" Margin="970,0,0,34" VerticalAlignment="Bottom" Click="nextButtonClick" TabIndex="20" HorizontalAlignment="Left" Width="50" FontWeight="Normal" FontFamily="FontAwesome" FontSize="14" Height="48"/>
+                    <ComboBox x:Name="NationalityBox" SelectedIndex="0" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="389,322,0,0" VerticalAlignment="Top" Width="120" TabIndex="15" >
+                        <ComboBoxItem Content="Pakistani" Tag="Pakistani"/>
+                        <ComboBoxItem Content="Afghani" Tag="Afghani"/>
+                    </ComboBox>
+                    <ComboBox x:Name="ReligionBox" SelectedIndex="0" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="904,188,0,0" VerticalAlignment="Top" Width="120" TabIndex="7" Height="26" >
+                        <ComboBoxItem Content="Islam" Tag="Islam"/>
+                        <ComboBoxItem Content="Hindu" Tag="Hindu"/>
+                        <ComboBoxItem Content="Christian" Tag="Christian"/>
+                        <ComboBoxItem Content="Sikh" Tag="Sikh"/>
+                    </ComboBox>
+                    <TextBlock x:Name="totalKids" HorizontalAlignment="Left" Margin="914,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="54" Width="161" Foreground="Black"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Family Information" Controls:ControlsHelper.HeaderFontSize="20" Margin="117,63,-117,-63" Foreground="{x:Null}" BorderBrush="{x:Null}" Controls:ControlsHelper.HeaderMargin="0" Controls:TabControlHelper.UnderlineMouseOverBrush="{x:Null}" Controls:TabControlHelper.UnderlineBrush="{x:Null}" Controls:TabControlHelper.UnderlineMouseOverSelectedBrush="{x:Null}" Controls:TabControlHelper.UnderlineSelectedBrush="{x:Null}" TabIndex="2">
+                <Grid Margin="0,70,0,0" Background="#FFF0F0F0">
+
+                    <Label Content="Father's Occupation: " Height="25" Width="149" Margin="39,144,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FatherOccupationText" Controls:TextBoxHelper.Watermark="Occupation" MaxLength="20" Height="25" Margin="193,143,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="210" TabIndex="21"/>
+
+                    <Label Content="Designation:    " Height="25" Width="110" Margin="39,174,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FatherDesignation" Controls:TextBoxHelper.Watermark="Designation" MaxLength="20" Height="25" Margin="193,174,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="210" TabIndex="22"/>
+
+                    <Label Content="Address of Work:    " Height="25" Width="149" Margin="39,204,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FatherAdress" Controls:TextBoxHelper.Watermark="Full Address" MaxLength="200" Height="97" Margin="193,205,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="210" TabIndex="23"/>
+
+                    <Label Content="About Mother: ( For Working Mothers Only)" VerticalContentAlignment="Center" Height="35" Margin="578,108,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontStretch="Expanded" HorizontalAlignment="Left" Width="311"/>
+
+                    <Label Content="Mother's Occupation: " Height="25" Width="161" Margin="579,144,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="MotherOccupationText" Controls:TextBoxHelper.Watermark="Occupation" MaxLength="25" Height="25" Margin="745,143,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="210" TabIndex="24"/>
+
+                    <Label Content="Designation:    " Height="25" Width="110" Margin="579,174,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="MotherDesignation" Controls:TextBoxHelper.Watermark="Designation" MaxLength="20" Height="25" Margin="745,174,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="210" TabIndex="25"/>
+
+                    <Label Content="Address of Work:    " Height="25" Width="161" Margin="579,204,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="MotherAddress" Controls:TextBoxHelper.Watermark="Full Address" MaxLength="200" Height="97" Margin="745,205,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" HorizontalAlignment="Left" Width="210" TabIndex="26"/>
+
+                    <Label Content="Guardian Name:  " Height="25" Width="110" Margin="39,386,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="GuardianNameText" Controls:TextBoxHelper.Watermark="Guardian Name" MaxLength="50" Height="25" Margin="193,382,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="210" TabIndex="27"/>
+
+                    <Label Content="Relation:   " Height="25" Width="110" Margin="39,416,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="RelationText" Controls:TextBoxHelper.Watermark="Relation" MaxLength="20" Height="25" Margin="193,413,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="210" TabIndex="28"/>
+
+                    <Label Content="Address:    " Height="25" Width="110" Margin="39,446,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="GuardianAddress" Controls:TextBoxHelper.Watermark="Full Address" MaxLength="200" Height="97" Margin="193,444,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" HorizontalAlignment="Left" Width="210" TabIndex="29"/>
+                    <Label Content="Parents Work Information" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="57" Margin="324,30,0,0" FontWeight="ExtraBold" FontStretch="Expanded" Width="440" FontSize="26.667" Foreground="#FF8D0000" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Label Content="About Father:" VerticalContentAlignment="Center" Height="35" Margin="41,108,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontStretch="Expanded" HorizontalAlignment="Left" Width="132"/>
+                    <Label Content="Guardian:" VerticalContentAlignment="Center" Height="35" Margin="41,346,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontStretch="Expanded" HorizontalAlignment="Left" Width="132"/>
+                    <Button x:Name="FInextButton" Style="{DynamicResource MetroCircleButtonStyle}" Content="" Margin="970,0,0,34" VerticalAlignment="Bottom" Click="nextButtonClick" HorizontalAlignment="Left" Width="50" TabIndex="31" FontFamily="FontAwesome" FontSize="14" FontWeight="Normal" Height="48"/>
+                    <Button x:Name="FIBackButton" Style="{DynamicResource MetroCircleButtonStyle}" Content="" Margin="905,0,0,34" VerticalAlignment="Bottom" Click="backButtonClick" HorizontalAlignment="Left" Width="50" TabIndex="30" FontFamily="FontAwesome" FontSize="14" FontWeight="Normal" Height="48"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Record" Controls:ControlsHelper.HeaderFontSize="20" Margin="149,63,-149,-63" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Controls:TabControlHelper.UnderlineBrush="{x:Null}" Controls:TabControlHelper.UnderlineSelectedBrush="{x:Null}" TabIndex="3" Controls:TabControlHelper.UnderlineMouseOverSelectedBrush="{x:Null}" Controls:TabControlHelper.UnderlineMouseOverBrush="{x:Null}">
+                <Grid Margin="0,70,0,0" Background="#FFF7F7F7">
+                    <Label Content="Previous Academic Record: " VerticalContentAlignment="Center" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontStretch="Expanded" HorizontalAlignment="Left" Width="242"/>
+
+                    <Label Content="Previous School:" Height="25" Width="110" Margin="10,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="PreviousSchoolText" Controls:TextBoxHelper.Watermark="Previous School Name" MaxLength="50" Height="25" Margin="148,50,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="172" TabIndex="32"/>
+
+                    <Label Content="Studied From - To:" Height="25" Width="138" Margin="10,81,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FromToText" Controls:TextBoxHelper.Watermark="Form Class - To Class" MaxLength="20" Height="25" Margin="148,81,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" PreviewTextInput="AlphaNumeric_PreviewTextInput" HorizontalAlignment="Left" Width="172" TabIndex="33"/>
+
+                    <Label Content="Reason of Leaving:    " Height="25" Width="138" Margin="10,112,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="ReasonText" Controls:TextBoxHelper.Watermark="Reasons" Height="68" MaxLength="100" Margin="150,112,0,0" VerticalAlignment="Top" Controls:TextBoxHelper.ClearTextButton="True" TextWrapping="Wrap" PreviewTextInput="AlphabetOnly_PreviewTextInput" HorizontalAlignment="Left" Width="312" TabIndex="34"/>
+                    <Button x:Name="RBackButton" Style="{DynamicResource MetroCircleButtonStyle}" FontFamily="FontAwesome" Content="" Margin="970,0,0,34" VerticalAlignment="Bottom" Click="backButtonClick" HorizontalAlignment="Left" Width="50" FontWeight="Normal" FontSize="14" Height="48"/>
+                    <Border  Height="239" VerticalAlignment="Top" Margin="398,247,0,0" HorizontalAlignment="Left" Width="302" BorderBrush="#FF212121" BorderThickness="1">
+                        <Image x:Name="formBay" Margin="10" Stretch="Fill"/>
+                    </Border>
+
+                    <Label Content="Formbay" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="35" Margin="468,207,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontStretch="Expanded" HorizontalAlignment="Left" Width="168"/>
+                    <Border  Height="240" VerticalAlignment="Top" Margin="28,246,0,0" HorizontalAlignment="Left" Width="302" BorderBrush="#FF212121" BorderThickness="1">
+                        <Image x:Name="birthCertificate" Margin="10" Stretch="Fill"/>
+                    </Border>
+                    <Label Content="Birth Certificate" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="36" Margin="98,206,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontStretch="Expanded" HorizontalAlignment="Left" Width="168"/>
+                    <Button x:Name="browseBC" Content="Browse" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="80,513,0,0" Click="browseBCButtonClick" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontWeight="Normal" FontFamily="Tw Cen MT" FontSize="14"/>
+                    <Button x:Name="clearBCButton" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="176,513,0,0" Click="clearBCButtonClick" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontWeight="Normal" FontFamily="Tw Cen MT" FontSize="14"/>
+
+                    <Button x:Name="browseFB" Content="Browse" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="435,513,0,0" Click="browseFBButtonClick" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontWeight="Normal" FontFamily="Tw Cen MT" FontSize="14"/>
+                    <Button x:Name="clearFBButton" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="540,513,0,0" Click="clearFBButtonClick" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontWeight="Normal" FontFamily="Tw Cen MT" FontSize="14"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Grid HorizontalAlignment="Left" Width="267" Background="#FF1E90D1">
+
+
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="piLable" Content="Personal Information" Margin="0,232,0,0" VerticalAlignment="Top" MouseDown="PIMouseDown" Height="30" FontSize="17.333" Foreground="White" Background="Transparent" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave"/>
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="fiLable" Content="Family Information" Margin="0,267,0,0" VerticalAlignment="Top" MouseDown="FIMouseDown" Height="30" FontSize="17.333" Foreground="White" Background="Transparent" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave"/>
+            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name="paLable" Content="Record" Margin="0,302,0,0" VerticalAlignment="Top" MouseDown="PAMouseDown" Height="30" FontSize="17.333" Foreground="White" Background="Transparent" MouseEnter="LabelMouseEnter" MouseLeave="LabelMouseLeave"/>
+
+            <Button x:Name="SubmitButton" Click="SubmitButtonClick" Style="{DynamicResource SquareButtonStyle}" Width="90" Margin="40,0,0,163" Content="Submit" HorizontalAlignment="Left" Controls:ControlsHelper.ContentCharacterCasing="Normal" IsDefault="True" TabIndex="1" Height="30" VerticalAlignment="Bottom" FontFamily="Tw Cen MT" FontWeight="Normal" FontSize="14" BorderThickness="1"/>
+            <Button x:Name="UpdateButton" Click="UpdateButtonClick" Style="{DynamicResource SquareButtonStyle}" Height="30" Width="90" Margin="40,0,0,163" Content="Update" VerticalAlignment="Bottom" HorizontalAlignment="Left" Visibility="Collapsed" IsDefault="True" FontFamily="Tw Cen MT" Controls:ControlsHelper.ContentCharacterCasing="Normal" BorderThickness="1" Cursor="Hand" FontWeight="Normal" FontSize="14"/>
+            <Button x:Name="ClearAllButton" Click="ClearButtonClick" Style="{DynamicResource SquareButtonStyle}" Width="90" Margin="153,0,0,163" Content="Clear" HorizontalAlignment="Left" Controls:ControlsHelper.ContentCharacterCasing="Normal" IsCancel="True" TabIndex="2" FontFamily="Tw Cen MT" FontSize="14" FontWeight="Normal" BorderThickness="1" Height="30" VerticalAlignment="Bottom"/>
+            <Button Click="BlankButtonClick" Style="{DynamicResource SquareButtonStyle}" Width="108" Margin="30,0,0,222" Content="Blank Affidavit" HorizontalAlignment="Left" Controls:ControlsHelper.ContentCharacterCasing="Normal" IsCancel="True" TabIndex="2" FontFamily="Tw Cen MT" FontSize="14" FontWeight="Normal" BorderThickness="1" Height="30" VerticalAlignment="Bottom"/>
+            <Button Click="FilledButtonClick" Style="{DynamicResource SquareButtonStyle}" Width="104" Margin="153,0,0,222" Content="Filled Affidavit" HorizontalAlignment="Left" Controls:ControlsHelper.ContentCharacterCasing="Normal" IsCancel="True" TabIndex="2" FontFamily="Tw Cen MT" FontSize="14" FontWeight="Normal" BorderThickness="1" Height="30" VerticalAlignment="Bottom"/>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
