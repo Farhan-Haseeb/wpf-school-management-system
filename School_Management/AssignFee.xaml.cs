@@ -17,6 +17,7 @@ using MahApps.Metro.Controls.Dialogs;
 using System.Globalization;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace School_Management
 {
@@ -217,7 +218,55 @@ namespace School_Management
         }
         private void ClasssAssignFeeButtonClick(object sender, RoutedEventArgs e)
         {
-            ClassAutoAssign();
+
+            try
+            {
+                string grade = ((ComboBoxItem)Grade.SelectedItem).Tag.ToString();
+
+                DateTime DueDate;
+                if (DueDateText.Text.Contains("/"))
+                {
+                    DueDate = DateTime.ParseExact(ClassDueDate.Text.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                else
+                {
+                    DueDate = DateTime.ParseExact(ClassDueDate.Text.ToString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                }
+                DateTime AppliedDate = DateTime.Now.Date;
+
+                var selectedItem = new List<SearchStudentInfoByGradeResult>();
+
+                //Console.WriteLine(ClassSelectedID.ToString(), "feeID");
+                //Console.WriteLine(ClassGetFeeAmount().ToString(), "ClassGetFeeAmount");
+                //Console.WriteLine(ClassgetFineAmount().ToString(), "ClassgetFineAmount");
+                //Console.WriteLine(DueDate.ToString(), "DueDate");
+                //Console.WriteLine(DueDate.ToString(), "DueDate");
+                //Console.WriteLine(AppliedDate.ToString(), "appliedON");
+                //Console.WriteLine(ClassGetDate().ToString(), "feeMonth");
+
+                foreach (SearchStudentInfoByGradeResult item in StudentSearchGrid.ItemsSource)
+                {
+                    //if (((CheckBox)SelectedStudent.GetCellContent(item)).IsChecked == true)
+                    if (((CheckBox)SelectedStudent.GetCellContent(item)).IsChecked == true)
+                    {
+                        Console.WriteLine(ClassSelectedID.ToString() + " feeID");
+                        Console.WriteLine(ClassGetFeeAmount().ToString() + " ClassGetFeeAmount");
+                        Console.WriteLine(ClassgetFineAmount().ToString() + " ClassgetFineAmount");
+                        Console.WriteLine(DueDate.ToString() + " DueDate");
+                        Console.WriteLine(item.AdmissionNumber.ToString() + " item.AdmissionNumber");
+                        Console.WriteLine(AppliedDate.ToString() + " appliedON");
+                        Console.WriteLine(ClassGetDate().ToString() + " feeMonth");
+
+                    }
+                }
+                
+                this.ShowMessageAsync("Done", "Process completed");
+            }
+            catch (System.InvalidCastException err)
+            {
+                this.ShowMessageAsync("Selection Error!", "You didn't select any item or the search result doesn't belong to your query / Withdraw is only on ID");
+                Debug.WriteLine(err.ToString());
+            }
         }
 
         private void ToAllClasssAssignFeeButtonClick(object sender, RoutedEventArgs e)

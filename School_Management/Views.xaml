@@ -86,26 +86,15 @@
                             <DataGridTextColumn Binding="{Binding PayingMonth}" Header="Paying Month" Width="150" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>-->
-                    <DataGrid x:Name="DefaulterGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,110,20,30" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True" Visibility="Hidden">
+                    <DataGrid x:Name="DefaulterGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="20,110,20,30" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionMode="Extended" Background="#FFDEDEDE" BorderBrush="#FF119EDA" GridLinesVisibility="Horizontal" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn  Binding="{Binding AdmissionNumber}" Width="30" Header="#" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Name}" Header="Student Name" Width="150" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Grade}" Header="Grade" Width="80" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="150" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Emergency}" Header="Emergency" Width="150" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="150" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Mobile}" Header="Mobile" Width="150" IsReadOnly="True"/>
-
-                            <DataGridTextColumn Binding="{Binding FeeTitle}" Header="Fee Title" Width="150" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding FeeAmount}" Header="Amount" Width="100" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding FeeMonth}" Header="Month" Width="100" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Fine}" Header="Fine" Width="100" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="100" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding AppliedOn}" Header="Applied On" Width="100" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding DueDate}" Header="Due Date" Width="100" IsReadOnly="True"/>
-
-                            <DataGridTextColumn Binding="{Binding DateOfAdmission}" Header="Date Of Admission" Width="150" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding AcademicYear}" Header="AcademicYear" Width="150" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Dues}" Header="Dues" Width="150" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="defaulterSearch" Content="Search" Width="75" Margin="374,53,0,0" Click="defaulterSearchClick" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" IsDefault="True" Style="{DynamicResource SquareButtonStyle}" BorderThickness="1" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Tw Cen MT" FontWeight="Normal"/>
