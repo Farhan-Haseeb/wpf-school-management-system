@@ -1,0 +1,1860 @@
+USE [master]
+GO
+/****** Object:  Database [School]    Script Date: 7/10/2019 10:10:49 AM ******/
+CREATE DATABASE [School]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'School', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\School.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'School_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER\MSSQL\DATA\School_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+ALTER DATABASE [School] SET COMPATIBILITY_LEVEL = 140
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [School].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [School] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [School] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [School] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [School] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [School] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [School] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [School] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [School] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [School] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [School] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [School] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [School] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [School] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [School] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [School] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [School] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [School] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [School] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [School] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [School] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [School] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [School] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [School] SET RECOVERY FULL 
+GO
+ALTER DATABASE [School] SET  MULTI_USER 
+GO
+ALTER DATABASE [School] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [School] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [School] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [School] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [School] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [School] SET QUERY_STORE = OFF
+GO
+USE [School]
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET LEGACY_CARDINALITY_ESTIMATION = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 0;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET PARAMETER_SNIFFING = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES = PRIMARY;
+GO
+USE [School]
+GO
+/****** Object:  Table [dbo].[StudentTable]    Script Date: 7/10/2019 10:10:49 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StudentTable](
+	[AdmissionNumber] [int] IDENTITY(1,1) NOT NULL,
+	[AcademicYear] [varchar](10) NOT NULL,
+	[Active] [varchar](5) NOT NULL,
+	[DateOfAdmission] [date] NOT NULL,
+	[DOB] [datetime] NOT NULL,
+	[Emergency] [varchar](11) NOT NULL,
+	[FatherName] [varchar](50) NULL,
+	[FatherCNIC] [varchar](16) NULL,
+	[FarherOccupation] [varchar](25) NULL,
+	[FatherDesignation] [varchar](20) NULL,
+	[FatherWorkAddress] [varchar](200) NULL,
+	[FirstLanguage] [varchar](10) NULL,
+	[Gender] [varchar](7) NOT NULL,
+	[Grade] [varchar](12) NOT NULL,
+	[GuardianName] [varchar](50) NULL,
+	[GuardianRelation] [varchar](20) NULL,
+	[GuardianAddress] [varchar](200) NULL,
+	[HomeAddress] [varchar](200) NULL,
+	[Mobile] [varchar](11) NULL,
+	[MotherName] [varchar](50) NULL,
+	[MotherCNIC] [varchar](16) NULL,
+	[MotherOccupation] [varchar](25) NULL,
+	[MotherDesignation] [varchar](20) NULL,
+	[MotherWorkAddress] [varchar](200) NULL,
+	[Name] [varchar](50) NOT NULL,
+	[Nationality] [varchar](15) NOT NULL,
+	[Religion] [varchar](20) NOT NULL,
+	[ReasonOfLeaving] [varchar](100) NULL,
+	[Phone] [varchar](11) NULL,
+	[PlaceOfBirth] [varchar](25) NULL,
+	[PreviousSchoolName] [varchar](50) NULL,
+	[Studied] [varchar](20) NULL,
+	[Updated] [date] NULL,
+	[TimeOfAdmission] [timestamp] NOT NULL,
+	[DateOfWithdraw] [date] NULL,
+	[StudentImage] [image] NULL,
+	[StudentFormBay] [image] NULL,
+	[StudentBC] [image] NULL,
+	[ClassAdmitedIn] [varchar](12) NULL,
+ CONSTRAINT [PK_StudentTable] PRIMARY KEY CLUSTERED 
+(
+	[AdmissionNumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StudentDiscountTable]    Script Date: 7/10/2019 10:10:49 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StudentDiscountTable](
+	[StudentDiscountID] [int] IDENTITY(1,1) NOT NULL,
+	[DiscountID] [int] NOT NULL,
+	[AdmissionNumber] [int] NOT NULL,
+	[FeeID] [int] NOT NULL,
+	[DiscountedFee] [int] NULL,
+ CONSTRAINT [PK_SutdentDiscountTable] PRIMARY KEY CLUSTERED 
+(
+	[StudentDiscountID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FeeAssociationTable]    Script Date: 7/10/2019 10:10:49 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FeeAssociationTable](
+	[AssociationID] [int] IDENTITY(1,1) NOT NULL,
+	[FeeID] [int] NOT NULL,
+	[AdmissionNumber] [int] NOT NULL,
+	[FeeAmount] [int] NOT NULL,
+	[FeeMonth] [varchar](30) NULL,
+	[DueDate] [date] NULL,
+	[Fine] [int] NULL,
+	[AppliedOn] [date] NOT NULL,
+	[Status] [varchar](10) NULL,
+ CONSTRAINT [PK_FeeAssociationTable] PRIMARY KEY CLUSTERED 
+(
+	[AssociationID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FeeTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FeeTable](
+	[FeeID] [int] IDENTITY(1,1) NOT NULL,
+	[FeeTitle] [varchar](20) NOT NULL,
+	[Amount] [int] NOT NULL,
+	[DiscountLimit] [int] NULL,
+ CONSTRAINT [PK_FeeTable] PRIMARY KEY CLUSTERED 
+(
+	[FeeID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[InvoiceTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[InvoiceTable](
+	[InvoiceID] [int] IDENTITY(1,1) NOT NULL,
+	[AdmissionNumber] [int] NOT NULL,
+	[TotalFeeOfMonth] [int] NOT NULL,
+	[PayingMonth] [varchar](30) NOT NULL,
+	[Paid] [int] NOT NULL,
+	[Dues] [int] NOT NULL,
+	[InvoiceDate] [date] NOT NULL,
+ CONSTRAINT [PK_InoviceTable] PRIMARY KEY CLUSTERED 
+(
+	[InvoiceID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[First_View]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[First_View]
+AS
+
+SELECT	  ISNULL(IT.Dues, 0) AS PreviousDues
+		, IT.InvoiceDate
+		, ISNULL(SD.DiscountedFee, 0) AS DiscountedFee
+		, FAT.FeeAmount
+		, FAT.Fine
+		,(FAT.FeeAmount - ISNULL(SD.DiscountedFee, 0)) AS Fee
+		, FAT.FeeMonth
+		, FAT.AssociationID
+		, FAT.AppliedOn
+		, FAT.DueDate
+		, FAT.[Status]
+		, FT.*
+		, ST.*
+		
+FROM FeeAssociationTable AS FAT
+
+LEFT JOIN FeeTable AS FT
+ON FAT.FeeID = FT.FeeID
+
+LEFT JOIN StudentTable AS ST
+ON FAT.AdmissionNumber = ST.AdmissionNumber
+
+LEFT JOIN StudentDiscountTable AS SD
+ON FAT.AdmissionNumber = SD.AdmissionNumber
+
+LEFT JOIN InvoiceTable AS IT
+ON ST.AdmissionNumber = IT.AdmissionNumber
+
+WHERE FAT.AdmissionNumber = ST.AdmissionNumber AND [Status] = 'Pending'
+
+GO
+/****** Object:  Table [dbo].[CNIC]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CNIC](
+	[Id] [varchar](50) NULL,
+	[FatherCNIC] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DiscountTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DiscountTable](
+	[DiscountID] [int] IDENTITY(1,1) NOT NULL,
+	[DiscountTitle] [varchar](50) NOT NULL,
+	[DiscountAmount] [int] NOT NULL,
+	[DiscountByPercentage] [int] NULL,
+ CONSTRAINT [PK_DiscountTable] PRIMARY KEY CLUSTERED 
+(
+	[DiscountID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EmployeeTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeTable](
+	[EmployeeId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[CNIC] [varchar](17) NULL,
+	[FatherName] [varchar](50) NOT NULL,
+	[Qualifications] [varchar](25) NOT NULL,
+	[Adress] [varchar](200) NULL,
+	[PrimaryContact] [varchar](11) NOT NULL,
+	[SecondaryContact] [varchar](11) NULL,
+	[Age] [int] NOT NULL,
+	[JoinedOn] [date] NOT NULL,
+	[Subject] [varchar](20) NOT NULL,
+	[Gender] [varchar](5) NOT NULL,
+ CONSTRAINT [PK_EmployeeTable] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FamilyMemberTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FamilyMemberTable](
+	[Count] [int] IDENTITY(1,1) NOT NULL,
+	[FamilyId] [int] NOT NULL,
+	[AdmissionNumber] [int] NOT NULL,
+	[AddedOn] [date] NOT NULL,
+ CONSTRAINT [PK_FamilyMemberTable] PRIMARY KEY CLUSTERED 
+(
+	[Count] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[FamilyTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FamilyTable](
+	[FamilyID] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedOn] [date] NOT NULL,
+	[FamilyName] [varchar](25) NOT NULL,
+ CONSTRAINT [PK_FamilyTable] PRIMARY KEY CLUSTERED 
+(
+	[FamilyID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MessageTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MessageTable](
+	[MessageId] [int] IDENTITY(1,1) NOT NULL,
+	[Body] [varchar](500) NOT NULL,
+	[Title] [varchar](150) NULL,
+ CONSTRAINT [PK_MessageTable] PRIMARY KEY CLUSTERED 
+(
+	[MessageId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PaymentTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PaymentTable](
+	[PaymentId] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[Month] [varchar](30) NOT NULL,
+	[Amount] [int] NOT NULL,
+	[PaidOn] [date] NOT NULL,
+ CONSTRAINT [PK_PaymentTable] PRIMARY KEY CLUSTERED 
+(
+	[PaymentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SLCTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SLCTable](
+	[SLCId] [int] IDENTITY(1,1) NOT NULL,
+	[AdmissionNumber] [int] NULL,
+	[DateIssued] [date] NULL,
+	[IssuedOnce] [varchar](5) NULL,
+ CONSTRAINT [PK_SLCTable] PRIMARY KEY CLUSTERED 
+(
+	[SLCId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SoldStockTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SoldStockTable](
+	[SellId] [int] IDENTITY(1,1) NOT NULL,
+	[BuyerName] [varchar](50) NOT NULL,
+	[SellQuantity] [int] NOT NULL,
+	[Price] [int] NOT NULL,
+	[StockId] [int] NOT NULL,
+	[SoldOn] [date] NOT NULL,
+ CONSTRAINT [PK_SoldStockTable] PRIMARY KEY CLUSTERED 
+(
+	[SellId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[StockTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StockTable](
+	[StockId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](30) NOT NULL,
+	[Amount] [int] NOT NULL,
+	[AddedOn] [date] NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[TotalAmount] [int] NULL,
+ CONSTRAINT [PK_StockTable] PRIMARY KEY CLUSTERED 
+(
+	[StockId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserTable](
+	[username] [varchar](10) NOT NULL,
+	[password] [varchar](20) NOT NULL,
+	[userId] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_UserTable] PRIMARY KEY CLUSTERED 
+(
+	[userId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[FamilyMemberTable]  WITH CHECK ADD  CONSTRAINT [FK_FamilyMemberTable_FamilyTable] FOREIGN KEY([FamilyId])
+REFERENCES [dbo].[FamilyTable] ([FamilyID])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[FamilyMemberTable] CHECK CONSTRAINT [FK_FamilyMemberTable_FamilyTable]
+GO
+ALTER TABLE [dbo].[FamilyMemberTable]  WITH CHECK ADD  CONSTRAINT [FK_FamilyMemberTable_StudentTable] FOREIGN KEY([AdmissionNumber])
+REFERENCES [dbo].[StudentTable] ([AdmissionNumber])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[FamilyMemberTable] CHECK CONSTRAINT [FK_FamilyMemberTable_StudentTable]
+GO
+ALTER TABLE [dbo].[FeeAssociationTable]  WITH CHECK ADD  CONSTRAINT [FK_FeeAssociationTable_FeeTable] FOREIGN KEY([FeeID])
+REFERENCES [dbo].[FeeTable] ([FeeID])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[FeeAssociationTable] CHECK CONSTRAINT [FK_FeeAssociationTable_FeeTable]
+GO
+ALTER TABLE [dbo].[FeeAssociationTable]  WITH CHECK ADD  CONSTRAINT [FK_FeeAssociationTable_StudentTable] FOREIGN KEY([AdmissionNumber])
+REFERENCES [dbo].[StudentTable] ([AdmissionNumber])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[FeeAssociationTable] CHECK CONSTRAINT [FK_FeeAssociationTable_StudentTable]
+GO
+ALTER TABLE [dbo].[InvoiceTable]  WITH CHECK ADD  CONSTRAINT [FK_InoviceTable_FeeAssociationTable] FOREIGN KEY([AdmissionNumber])
+REFERENCES [dbo].[StudentTable] ([AdmissionNumber])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[InvoiceTable] CHECK CONSTRAINT [FK_InoviceTable_FeeAssociationTable]
+GO
+ALTER TABLE [dbo].[PaymentTable]  WITH CHECK ADD  CONSTRAINT [FK_PaymentTable_EmployeeTable] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[EmployeeTable] ([EmployeeId])
+GO
+ALTER TABLE [dbo].[PaymentTable] CHECK CONSTRAINT [FK_PaymentTable_EmployeeTable]
+GO
+ALTER TABLE [dbo].[SoldStockTable]  WITH CHECK ADD  CONSTRAINT [FK_SoldStockTable_StockTable] FOREIGN KEY([StockId])
+REFERENCES [dbo].[StockTable] ([StockId])
+GO
+ALTER TABLE [dbo].[SoldStockTable] CHECK CONSTRAINT [FK_SoldStockTable_StockTable]
+GO
+ALTER TABLE [dbo].[StudentDiscountTable]  WITH CHECK ADD  CONSTRAINT [FK_StudentDiscountTable_DiscountTable] FOREIGN KEY([DiscountID])
+REFERENCES [dbo].[DiscountTable] ([DiscountID])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[StudentDiscountTable] CHECK CONSTRAINT [FK_StudentDiscountTable_DiscountTable]
+GO
+ALTER TABLE [dbo].[StudentDiscountTable]  WITH CHECK ADD  CONSTRAINT [FK_StudentDiscountTable_StudentTable] FOREIGN KEY([AdmissionNumber])
+REFERENCES [dbo].[StudentTable] ([AdmissionNumber])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[StudentDiscountTable] CHECK CONSTRAINT [FK_StudentDiscountTable_StudentTable]
+GO
+/****** Object:  StoredProcedure [dbo].[AddMembersToFamily]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[AddMembersToFamily]
+(
+	@AdmissionNumber int,
+	@FamilyID int,
+	@Date date
+)
+
+AS
+
+INSERT FamilyMemberTable (AdmissionNumber, FamilyId, AddedOn)
+VALUES (@AdmissionNumber, @FamilyID, @Date)
+GO
+/****** Object:  StoredProcedure [dbo].[AutoAssignFeeUpdate]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[AutoAssignFeeUpdate]
+(
+	@FeeID int,
+	@FeeAmount int,
+	@Fine int,
+	@DueDate date,
+	@AppliedON date,
+	@FeeMonth varchar(30)
+)
+AS 
+
+MERGE INTO FeeAssociationTable t
+USING (SELECT AdmissionNumber, @FeeID as FeeID, @FeeMonth as FeeMonth FROM StudentTable
+       WHERE Active = 'True') s
+ON t.AdmissionNumber = s.AdmissionNumber AND
+t.FeeID = s.FeeID AND
+t.FeeMonth = s.FeeMonth
+WHEN MATCHED THEN UPDATE SET FeeAmount = @FeeAmount, Fine = @Fine , DueDate = @DueDate
+WHEN NOT MATCHED THEN INSERT
+(FeeID, AdmissionNumber, FeeAmount, FeeMonth, DueDate, Fine, AppliedOn, [Status])
+VALUES
+(@FeeID, s.AdmissionNumber, @FeeAmount, @FeeMonth, @DueDate, @Fine, @AppliedON, 'Pending');
+
+GO
+/****** Object:  StoredProcedure [dbo].[AutoDeleteFee]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[AutoDeleteFee]
+(
+	@FeeID int,
+	@FeeMonth varchar(30)
+)
+AS 
+BEGIN
+	DELETE FeeAssociationTable 
+	WHERE FeeID = @FeeID AND FeeMonth = @FeeMonth
+END
+GO
+/****** Object:  StoredProcedure [dbo].[CalculateDues]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[CalculateDues]
+(
+	@AdmissionNumber int
+)
+AS
+
+SELECT Dues FROM InvoiceTable AS IT
+			WHERE IT.InvoiceID = (SELECT MAX(InvoiceID) FROM InvoiceTable WHERE AdmissionNumber = @AdmissionNumber)
+			RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[CheckForStudentsWhoDidnotPay]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[CheckForStudentsWhoDidnotPay]
+(
+	@Status varchar(10),
+	@FeeMonth varchar(30)
+)
+AS
+
+SELECT	S.*
+		, FAT.AssociationID
+		, F.FeeTitle
+		, F.FeeID
+		, FAT.FeeAmount
+		, FAT.FeeMonth
+		, FAT.Fine
+		, FAT.[Status]
+		, FAT.AppliedOn
+		, FAT.DueDate
+		, (SELECT COUNT(AdmissionNumber) FROM FeeAssociationTable
+			WHERE [Status] = @Status AND FeeMonth = @FeeMonth) AS TotalStudents
+		, (SELECT SUM(FeeAmount) FROM FeeAssociationTable 
+			WHERE [Status] = @Status AND FeeMonth = @FeeMonth) 
+		AS EstimatedRecovery
+
+FROM StudentTable AS S
+
+INNER JOIN FeeAssociationTable AS FAT
+ON S.AdmissionNumber = FAT.AdmissionNumber
+
+INNER JOIN FeeTable AS F
+ON F.FeeID = FAT.FeeID
+
+WHERE [Status] = @Status AND FeeMonth = @FeeMonth
+
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[CheckIfPaid]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROC [dbo].[CheckIfPaid]
+(
+	@AdmissionNumber INT,
+	@FeeMonth VARCHAR(30)
+)
+AS
+
+SELECT CAST(CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END AS BIT) as Paid 
+
+FROM InvoiceTable 
+
+WHERE AdmissionNumber = @AdmissionNumber AND PayingMonth = @FeeMonth
+GO
+/****** Object:  StoredProcedure [dbo].[ClassAssignFeeUpdate]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[ClassAssignFeeUpdate]
+(
+	@FeeID int,
+	@FeeAmount int,
+	@Fine int,
+	@DueDate date,
+	@AppliedON date,
+	@FeeMonth varchar(30),
+	@AdmissionNumber int
+)
+AS 
+    --- CHECK IF ROW EXITS
+SELECT AdmissionNumber
+FROM FeeAssociationTable
+IF EXISTS ( SELECT FeeMonth FROM FeeAssociationTable 
+				WHERE @AdmissionNumber = AdmissionNumber 
+					AND FeeID = @FeeID 
+					AND FeeMonth = @FeeMonth)
+	BEGIN
+		UPDATE FeeAssociationTable
+		SET FeeAmount = @FeeAmount, Fine = @Fine , DueDate = @DueDate
+		WHERE  AdmissionNumber = @AdmissionNumber 
+		AND FeeID = @FeeID
+		AND  FeeMonth = @FeeMonth
+	END
+
+ELSE
+	BEGIN
+		INSERT FeeAssociationTable 
+		(FeeID, AdmissionNumber, FeeAmount, FeeMonth, DueDate, Fine, AppliedOn, [Status])
+	
+		VALUES
+		(@FeeID, @AdmissionNumber, @FeeAmount, @FeeMonth, @DueDate, @Fine, @AppliedON, 'Pending')
+	END
+GO
+/****** Object:  StoredProcedure [dbo].[ClassDeleteFee]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[ClassDeleteFee]
+(
+	@FeeID int,
+	@FeeMonth varchar(30),
+	@AdmissionNumber int
+)
+AS 
+BEGIN
+	
+	DELETE FeeAssociationTable
+	WHERE FeeID = @FeeID AND FeeMonth = @FeeMonth AND AdmissionNumber = @AdmissionNumber
+END
+GO
+/****** Object:  StoredProcedure [dbo].[ClassStrength]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[ClassStrength]
+AS
+
+SELECT
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = 'Play Group' AND Active = 'True' ) AS PlayGroup,
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = 'Nursery' AND Active = 'True' ) AS Nursery,
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = 'Prep' AND Active = 'True' ) AS Prep,
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '1' AND Active = 'True' ) AS '1',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '2' AND Active = 'True' ) AS '2',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '3' AND Active = 'True' ) AS '3',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '4' AND Active = 'True' ) AS '4',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '5' AND Active = 'True' ) AS '5',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '6' AND Active = 'True' ) AS '6',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '7' AND Active = 'True' ) AS '7',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '8' AND Active = 'True' ) AS '8',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '9' AND Active = 'True' ) AS '9',
+		( SELECT COUNT(AdmissionNumber) FROM StudentTable
+				WHERE Grade = '10' AND Active = 'True' ) AS '10'
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[DefaultersList]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[DefaultersList]
+(
+	@Dues int
+)
+
+AS
+SELECT  S.*,InvoiceID, Dues, PayingMonth, InvoiceDate
+FROM InvoiceTable AS IT
+
+INNER JOIN StudentTable AS S
+ON IT.AdmissionNumber = S.AdmissionNumber
+
+WHERE IT.invoiceId IN (SELECT MAX(invoiceId)
+                        FROM InvoiceTable
+                        GROUP BY AdmissionNumber) AND Dues >= @Dues AND S.AdmissionNumber = IT.AdmissionNumber
+ORDER BY Dues DESC
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteDiscount]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[DeleteDiscount]
+(
+	@AdmissionNumber int,
+	@FeeID int
+)
+AS
+DELETE StudentDiscountTable 
+
+WHERE AdmissionNumber = @AdmissionNumber AND FeeID = @FeeID
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteFamily]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[DeleteFamily]
+(
+	@FamilyId int
+)
+AS
+
+DELETE FamilyTable
+WHERE FamilyID = @FamilyId
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteMember]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[DeleteMember]
+(
+	@AdmissionNumber int
+)
+AS
+
+DELETE FamilyMemberTable
+WHERE AdmissionNumber = @AdmissionNumber
+
+GO
+/****** Object:  StoredProcedure [dbo].[DicountExists]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[DicountExists]
+(
+	@AdmissionNumber int,
+	@FeeID int
+)
+AS
+
+SELECT CAST(CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END AS BIT) as Discount
+
+FROM StudentDiscountTable 
+
+WHERE AdmissionNumber = @AdmissionNumber AND FeeID = @FeeID
+GO
+/****** Object:  StoredProcedure [dbo].[Experiment]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[Experiment]
+AS
+
+SELECT * FROM First_View
+ORDER BY AppliedOn
+GO
+/****** Object:  StoredProcedure [dbo].[FamilyInfo]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[FamilyInfo]
+(
+	@FamilyId int
+)
+
+AS
+SELECT S.*, F.FamilyName, FM.AddedOn, FM.FamilyId, F.CreatedOn FROM FamilyTable AS F
+
+INNER JOIN FamilyMemberTable AS FM
+ON F.FamilyID = FM.FamilyId
+
+INNER JOIN StudentTable AS S
+ON FM.AdmissionNumber = S.AdmissionNumber
+
+WHERE FM.FamilyId = @FamilyId
+GO
+/****** Object:  StoredProcedure [dbo].[FeeAssignedTo]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[FeeAssignedTo]
+(
+	@FeeMonth varchar(30),
+	@FeeID int
+)
+AS 
+SELECT COUNT(AdmissionNumber) AS AppliedOn FROM FeeAssociationTable
+
+WHERE FeeMonth = @FeeMonth AND FeeID = @FeeID
+GO
+/****** Object:  StoredProcedure [dbo].[FeePaid]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[FeePaid]
+(	
+	@AdmissionNumber int,
+	@FeeMonth varchar(30)
+)
+AS
+UPDATE FeeAssociationTable
+
+SET [Status] = 'Paid'
+
+WHERE AdmissionNumber = @AdmissionNumber AND FeeMonth = @FeeMonth
+GO
+/****** Object:  StoredProcedure [dbo].[FeeSlipViewData]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[FeeSlipViewData]
+AS
+
+SELECT * FROM First_View
+ORDER BY AppliedOn
+GO
+/****** Object:  StoredProcedure [dbo].[FeeSlipViewDataByGrade]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[FeeSlipViewDataByGrade]
+(
+	@grade varchar(12)
+)
+
+AS
+
+SELECT * FROM First_View
+
+WHERE Grade = @grade
+
+ORDER BY AppliedOn
+GO
+/****** Object:  StoredProcedure [dbo].[GenderCount]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GenderCount]
+
+AS
+
+SELECT (SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = 'Play Group') AS PlayGroupMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = 'Play Group') AS PlayGroupFemale,
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = 'Nursery') AS NurseryMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = 'Nursery') AS NurseryFemale,
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = 'Prep') AS PrepMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = 'Prep') AS PrepFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '1') AS OneMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '1') AS OneFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '2') AS TwoMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '2') AS TwoFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '3') AS ThreeMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '3') AS ThreeFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '4') AS FourMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '4') AS FourFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '5') AS FiveMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '5') AS FiveFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '6') AS SixMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '6') AS SixFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '7') AS SevenMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '7') AS SevenFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '8') AS EightMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '8') AS EightFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '9') AS NineMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '9') AS NineFemale,
+
+
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Male' AND Active = 'True' AND Grade = '10') AS TenMale,
+		(SELECT COUNT(*) FROM StudentTable
+		WHERE Gender = 'Female' AND Active = 'True' AND Grade = '10') AS TenFemale
+GO
+/****** Object:  StoredProcedure [dbo].[GetDiscountTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetDiscountTable]
+AS
+SELECT * FROM DiscountTable
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[GetEmployeeTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetEmployeeTable]
+AS
+SELECT * FROM EmployeeTable
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[GetFamilyTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetFamilyTable]
+AS
+SELECT * FROM FamilyTable RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[GetFeeTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetFeeTable]
+AS
+SELECT * FROM FeeTable RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[GetMessageTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetMessageTable]
+AS
+
+SELECT * FROM MessageTable
+GO
+/****** Object:  StoredProcedure [dbo].[GetSlipData]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetSlipData]
+AS
+SELECT 
+		IT.InvoiceID
+		, IT.Paid
+		, IT.PayingMonth
+		, IT.Dues
+		, IT.TotalFeeOfMonth
+		, IT.InvoiceDate
+		, S.* 
+
+FROM InvoiceTable AS IT
+
+INNER JOIN StudentTable AS S
+ON IT.AdmissionNumber = S.AdmissionNumber
+
+WHERE IT.AdmissionNumber = IT.AdmissionNumber
+ORDER BY InvoiceID DESC
+GO
+/****** Object:  StoredProcedure [dbo].[GetSlipDataByYear]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetSlipDataByYear]
+(
+	@Year int
+)
+AS
+SELECT 
+		IT.InvoiceID
+		, IT.Paid
+		, IT.PayingMonth
+		, IT.Dues
+		, IT.TotalFeeOfMonth
+		, IT.InvoiceDate
+		, S.* 
+		,(SELECT SUM(TotalFeeOfMonth) FROM InvoiceTable WHERE YEAR(InvoiceDate) = @Year) AS Total
+		,(SELECT SUM(Paid) FROM InvoiceTable WHERE YEAR(InvoiceDate) = @Year) AS Received
+		,(SELECT SUM(Dues) FROM InvoiceTable WHERE YEAR(InvoiceDate) = @Year) AS Receivable
+FROM InvoiceTable AS IT
+
+INNER JOIN StudentTable AS S
+ON IT.AdmissionNumber = S.AdmissionNumber
+
+WHERE YEAR(IT.InvoiceDate) = @Year
+ORDER BY InvoiceID DESC
+GO
+/****** Object:  StoredProcedure [dbo].[GetSlipDataByYM]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetSlipDataByYM]
+(
+	@Year int,
+	@Month int
+)
+AS
+SELECT 
+		IT.InvoiceID
+		, IT.Paid
+		, IT.PayingMonth
+		, IT.Dues
+		, IT.TotalFeeOfMonth
+		, IT.InvoiceDate
+		, S.* 
+		,(SELECT SUM(TotalFeeOfMonth) FROM InvoiceTable WHERE YEAR(InvoiceDate) = @Year AND MONTH(IT.InvoiceDate) = @Month) AS Total
+		,(SELECT SUM(Paid) FROM InvoiceTable WHERE YEAR(InvoiceDate) = @Year AND MONTH(IT.InvoiceDate) = @Month) AS Received
+		,(SELECT SUM(Dues) FROM InvoiceTable WHERE YEAR(InvoiceDate) = @Year AND MONTH(IT.InvoiceDate) = @Month) AS Receivable
+FROM InvoiceTable AS IT
+
+INNER JOIN StudentTable AS S
+ON IT.AdmissionNumber = S.AdmissionNumber
+
+WHERE YEAR(IT.InvoiceDate) = @Year AND MONTH(IT.InvoiceDate) = @Month
+ORDER BY InvoiceID DESC
+GO
+/****** Object:  StoredProcedure [dbo].[GetStockTable]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[GetStockTable]
+AS
+SELECT * FROM StockTable
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[InvoicesByYear]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[InvoicesByYear]
+(
+	@Year int
+)
+AS
+SELECT 
+		  I.Dues
+		, I.InvoiceDate
+		, I.InvoiceID
+		, I.Paid
+		, I.PayingMonth
+		, I.TotalFeeOfMonth
+		, S.*
+FROM InvoiceTable AS I
+
+INNER JOIN StudentTable AS S
+ON S.AdmissionNumber = I.AdmissionNumber
+
+WHERE YEAR(InvoiceDate) = @Year
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[InvoicesMY]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[InvoicesMY]
+(
+	@Month int,
+	@Year int
+)
+AS
+SELECT 
+		  I.Dues
+		, I.InvoiceDate
+		, I.InvoiceID
+		, I.Paid
+		, I.PayingMonth
+		, I.TotalFeeOfMonth
+		, S.*
+FROM InvoiceTable AS I
+
+INNER JOIN StudentTable AS S
+ON S.AdmissionNumber = I.AdmissionNumber
+
+WHERE MONTH(InvoiceDate) = @Month AND YEAR(InvoiceDate) = @Year
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[ListOfStudentsWhoDidnotPay]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[ListOfStudentsWhoDidnotPay]
+(
+	@Status varchar(10)
+)
+AS
+
+SELECT AdmissionNumber FROM FeeAssociationTable AS FAT
+WHERE [Status] = @Status
+GROUP BY AdmissionNumber
+
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[PayementHistory]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[PayementHistory]
+AS
+SELECT 
+		 P.Amount
+		,P.[Month]
+		,P.PaidOn
+		,P.PaymentId
+		,E.* 
+
+FROM PaymentTable AS P
+
+INNER JOIN EmployeeTable AS E
+ON E.EmployeeId = P.EmployeeId
+GO
+/****** Object:  StoredProcedure [dbo].[PaymentHistoryByYear]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[PaymentHistoryByYear]
+(
+	@Year int
+)
+AS
+SELECT 
+		 P.Amount
+		,P.[Month]
+		,P.PaidOn
+		,P.PaymentId
+		,E.* 
+FROM PaymentTable AS P
+
+INNER JOIN EmployeeTable AS E
+ON E.EmployeeId = P.EmployeeId
+
+WHERE YEAR(PaidOn) = @Year
+GO
+/****** Object:  StoredProcedure [dbo].[PaymentHistoryMY]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[PaymentHistoryMY]
+(
+	@Month int,
+	@Year int
+)
+AS
+SELECT 
+		 P.Amount
+		,P.[Month]
+		,P.PaidOn
+		,P.PaymentId
+		,E.* 
+FROM PaymentTable AS P
+
+INNER JOIN EmployeeTable AS E
+ON E.EmployeeId = P.EmployeeId
+
+WHERE MONTH(PaidOn) = @Month AND YEAR(PaidOn) = @Year
+GO
+/****** Object:  StoredProcedure [dbo].[PrintDepositSlip]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[PrintDepositSlip]
+(
+	@AdmissionNumber int,
+	@Month varchar(30),
+	@Status varchar(10)
+)
+AS
+
+SELECT 
+		S.*
+		, FAT.AssociationID
+		, FAT.AppliedOn
+		, FAT.DueDate
+		, FAT.FeeAmount
+		, FAT.FeeMonth
+		, FAT.Fine
+		, FAT.[Status]
+		, F.*
+		, IT.Dues
+		, IT.InvoiceDate
+		, IT.InvoiceID
+		, IT.Paid
+		, IT.PayingMonth
+		, IT.TotalFeeOfMonth
+		, (SELECT DiscountAmount FROM DiscountTable AS DT
+			INNER JOIN StudentDiscountTable AS SD
+			ON DT.DiscountID = SD.DiscountID
+
+			WHERE AdmissionNumber = @AdmissionNumber AND FAT.FeeID = SD.FeeID) AS DiscountAmount
+
+		, (SELECT DiscountAmount FROM DiscountTable AS DT
+			INNER JOIN StudentDiscountTable AS SD
+			ON DT.DiscountID = SD.DiscountID
+
+			WHERE AdmissionNumber = @AdmissionNumber AND FAT.FeeID = SD.FeeID) AS DiscountTitle
+
+		, (SELECT DiscountAmount FROM DiscountTable AS DT
+			INNER JOIN StudentDiscountTable AS SD
+			ON DT.DiscountID = SD.DiscountID
+
+			WHERE AdmissionNumber = @AdmissionNumber AND FAT.FeeID = SD.FeeID) AS TotalDiscount
+
+		, (SELECT Dues FROM InvoiceTable AS IT
+			WHERE IT.InvoiceID = (SELECT MAX(InvoiceID) FROM InvoiceTable WHERE AdmissionNumber = @AdmissionNumber) 
+			) AS PreviousDues
+
+FROM FeeAssociationTable AS FAT
+
+INNER JOIN FeeTable AS F
+ON F.FeeID = FAT.FeeID
+
+INNER JOIN StudentTable AS S
+ON FAT.AdmissionNumber = S.AdmissionNumber
+
+INNER JOIN InvoiceTable AS IT
+ON IT.AdmissionNumber = FAT.AdmissionNumber
+
+
+WHERE FAT.AdmissionNumber = @AdmissionNumber AND IT.PayingMonth = @Month AND [Status] = @Status AND FAT.FeeMonth = @Month
+AND IT.AdmissionNumber = S.AdmissionNumber AND F.FeeID = FAT.FeeID
+
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[PrintFeeSlip]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[PrintFeeSlip]
+(
+	@AdmissionNumber int
+)
+
+AS
+
+SELECT 
+		(
+		SELECT 
+			CASE  
+				WHEN DueDate < GETDATE()
+				THEN 
+				--- Applying FINE IF IT THE DATE PASSED
+					( SELECT SUM(FeeAmount) + (SELECT SUM(Fine)
+							FROM FeeAssociationTable 
+			
+							WHERE AdmissionNumber = @AdmissionNumber AND Fine IS NOT NULL AND [Status] = 'Pending') 		
+
+					  FROM FeeAssociationTable 
+					  WHERE AdmissionNumber = @AdmissionNumber AND [Status] = 'Pending'
+					) 
+				ELSE 
+					(
+					SELECT SUM(FeeAmount)
+
+					FROM FeeAssociationTable 
+			
+					WHERE AdmissionNumber = @AdmissionNumber AND [Status] = 'Pending'
+					) 
+					END
+		)  AS CalulatedTotal		
+		, (
+			SELECT SUM(FeeAmount)
+
+					FROM FeeAssociationTable 
+			
+					WHERE AdmissionNumber = @AdmissionNumber AND [Status] = 'Pending'
+			) AS TotalFee
+
+		, S.*
+		, FAT.AssociationID
+		, FAT.AppliedOn
+		, FAT.DueDate
+		, FAT.FeeAmount
+		, FAT.FeeMonth
+		, FAT.Fine
+		, FAT.[Status]
+		, F.*
+		, (SELECT ISNULL(DiscountAmount, '') FROM DiscountTable AS DT
+			INNER JOIN StudentDiscountTable AS SD
+			ON SD.DiscountID = DT.DiscountID
+			WHERE AdmissionNumber = @AdmissionNumber AND FAT.FeeID = SD.FeeID) AS DiscountAmount
+
+		, (SELECT ISNULL(DiscountTitle, '') FROM DiscountTable AS DT
+			INNER JOIN StudentDiscountTable AS SD
+			ON SD.DiscountID = DT.DiscountID
+			WHERE SD.AdmissionNumber = @AdmissionNumber AND FAT.FeeID = SD.FeeID) AS DiscountTitle
+
+		, (SELECT (SELECT ISNULL( SUM(DiscountAmount), 0 ) FROM DiscountTable AS DT
+				
+					INNER JOIN StudentDiscountTable AS SD 
+					ON SD.DiscountID = DT.DiscountID AND
+					SD.AdmissionNumber = @AdmissionNumber
+					
+				) * (SELECT COUNT(FeeMonth) FROM FeeAssociationTable AS FAT
+						INNER JOIN StudentDiscountTable AS SD
+						ON FAT.FeeID = SD.FeeID AND
+						FAT.AdmissionNumber = SD.AdmissionNumber
+						WHERE FAT.AdmissionNumber = @AdmissionNumber AND FAT.[Status] = 'Pending'
+						AND FAT.FeeID = SD.FeeID
+				)
+			) AS TotalDiscount
+
+		, (SELECT Dues FROM InvoiceTable AS IT
+			WHERE IT.InvoiceID = (SELECT MAX(InvoiceID) FROM InvoiceTable WHERE AdmissionNumber = @AdmissionNumber) 
+			) AS PreviousDues
+
+FROM FeeAssociationTable AS FAT
+
+INNER JOIN FeeTable AS F
+ON F.FeeID = FAT.FeeID
+
+INNER JOIN StudentTable AS S
+ON FAT.AdmissionNumber = S.AdmissionNumber
+
+WHERE FAT.AdmissionNumber = @AdmissionNumber AND [Status] = 'Pending'
+ORDER BY FAT.AssociationID
+GO
+/****** Object:  StoredProcedure [dbo].[PromoteStudents]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[PromoteStudents]
+(
+	@AdmissionNumber int,
+	@Grade varchar(12)
+)
+AS
+
+UPDATE StudentTable
+SET Grade = @Grade
+WHERE AdmissionNumber = @AdmissionNumber
+GO
+/****** Object:  StoredProcedure [dbo].[RemoveOrRestore]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[RemoveOrRestore]
+(
+	@AdmissionNumber INT,
+	@Active VARCHAR(5),
+	@Date DATE
+)
+
+AS
+UPDATE StudentTable
+SET Active = @Active, DateOfWithdraw = @Date
+WHERE AdmissionNumber = @AdmissionNumber
+GO
+/****** Object:  StoredProcedure [dbo].[SalesRecordMonthly]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SalesRecordMonthly]
+(
+	@Month int,
+	@Year int
+)
+AS
+
+SELECT 	SellId,
+		SellQuantity,
+		BuyerName,
+		Price,
+		SoldOn,
+		ST.*, (SELECT SUM(Price) FROM SoldStockTable
+			WHERE MONTH(SoldOn) = @Month AND YEAR(SoldOn) = @Year) AS Total
+FROM SoldStockTable AS SST
+
+INNER JOIN StockTable AS ST
+ON ST.StockId = SST.StockId
+
+WHERE MONTH(SoldOn) = @Month AND YEAR(SoldOn) = @Year
+GO
+/****** Object:  StoredProcedure [dbo].[SalesRecordYearly]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SalesRecordYearly]
+(
+	@Year int
+)
+AS
+
+SELECT	SellId,
+		SellQuantity,
+		BuyerName,
+		Price,
+		SoldOn,
+		ST.*,
+		 (SELECT SUM(Price) FROM SoldStockTable
+			WHERE YEAR(SoldOn) = @Year) AS Total
+FROM SoldStockTable AS SST
+
+INNER JOIN StockTable AS ST
+ON ST.StockId = SST.StockId
+
+WHERE YEAR(SoldOn) = @Year
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentInfoAll]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentInfoAll]
+(
+	@Active varchar(5)
+)
+AS
+SELECT * FROM StudentTable 
+WHERE Active = @Active
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentInfoAllByFatherName]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentInfoAllByFatherName]
+(
+	@FatherName varchar(50),
+	@Active varchar(5)
+)
+AS
+SELECT * FROM StudentTable 
+WHERE FatherName LIKE '%' + @FatherName + '%' AND Active = @Active
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentInfoAllById]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentInfoAllById]
+(
+	@AdmissionNumber INT,
+	@Active VARCHAR(5)
+)
+AS
+SELECT * FROM StudentTable 
+WHERE AdmissionNumber = @AdmissionNumber AND Active = @Active
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentInfoAllByName]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentInfoAllByName]
+(
+	@Name varchar(50),
+	@Active varchar(5)
+)
+AS
+SELECT * FROM StudentTable 
+WHERE [Name] LIKE '%'+ @Name +'%' AND Active = @Active
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentInfoAllByPrimary]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentInfoAllByPrimary]
+(
+	@Emergency varchar(11),
+	@Active varchar(5)
+)
+AS
+SELECT * FROM StudentTable 
+WHERE [Emergency] = @Emergency AND Active = @Active
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentInfoByCNIC]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentInfoByCNIC]
+(
+	@CNIC varchar(50)
+)
+AS
+SELECT	HomeAddress, 
+		FatherName, 
+		MotherName, 
+		[Emergency], 
+		Mobile, 
+		Phone,
+		FirstLanguage,
+		(SELECT COUNT(FatherCNIC) FROM StudentTable WHERE FatherCNIC = @CNIC ) AS TotalKids
+
+FROM StudentTable 
+WHERE FatherCNIC = @CNIC
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentInfoByGrade]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentInfoByGrade]
+
+(
+	@Active varchar(5),
+	@Grade varchar(12)
+)
+AS
+SELECT * FROM StudentTable 
+WHERE Active = @Active AND Grade = @Grade
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[SearchStudentSchoolWise]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[SearchStudentSchoolWise]
+(
+	@SchoolName varchar(50)
+)
+AS
+SELECT * FROM StudentTable 
+WHERE PreviousSchoolName LIKE '%' + @SchoolName + '%'
+ORDER BY PreviousSchoolName ASC
+RETURN
+
+GO
+/****** Object:  StoredProcedure [dbo].[StudentFeeData]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[StudentFeeData]
+(
+	@AdmissionNumber int,
+	@FeeMonth varchar(30)
+)
+AS
+
+SELECT 
+		(
+		SELECT 
+			CASE  
+				WHEN DueDate < GETDATE()
+				THEN 
+				--- Applying FINE IF IT THE DATE PASSED
+					( SELECT SUM(FeeAmount) + (SELECT SUM(Fine)
+							FROM FeeAssociationTable 
+			
+							WHERE AdmissionNumber = @AdmissionNumber AND FeeMonth = @FeeMonth AND Fine IS NOT NULL AND [Status] = 'Pending')		
+
+					  FROM FeeAssociationTable 
+					  WHERE AdmissionNumber = @AdmissionNumber AND FeeMonth = @FeeMonth AND [Status] = 'Pending'
+					) 
+				ELSE 
+					(
+					SELECT SUM(FeeAmount)
+
+					FROM FeeAssociationTable 
+			
+					WHERE AdmissionNumber = @AdmissionNumber AND FeeMonth = @FeeMonth AND [Status] = 'Pending'
+					) 
+					END
+		)  AS CalulatedTotal
+		, (
+			SELECT SUM(FeeAmount)
+
+					FROM FeeAssociationTable 
+			
+					WHERE AdmissionNumber = @AdmissionNumber AND FeeMonth = @FeeMonth AND [Status] = 'Pending'
+			) AS TotalFee
+
+		, S.*
+		, FAT.AssociationID
+		, FAT.AppliedOn
+		, FAT.DueDate
+		, FAT.FeeAmount
+		, FAT.FeeMonth
+		, FAT.Fine
+		, FAT.[Status]
+		, F.*
+		, (SELECT DiscountAmount FROM DiscountTable AS DT
+			INNER JOIN StudentDiscountTable AS SD
+			ON SD.DiscountID = DT.DiscountID
+			WHERE AdmissionNumber = @AdmissionNumber AND FAT.FeeID = SD.FeeID) AS DiscountAmount
+
+		, (SELECT DiscountTitle FROM DiscountTable AS DT
+			INNER JOIN StudentDiscountTable AS SD
+			ON SD.DiscountID = DT.DiscountID
+			WHERE SD.AdmissionNumber = @AdmissionNumber AND FAT.FeeID = SD.FeeID) AS DiscountTitle
+
+		, (SELECT (SELECT ISNULL( SUM(DiscountAmount), 0 ) FROM DiscountTable AS DT
+					INNER JOIN StudentDiscountTable AS SD 
+					ON SD.DiscountID = DT.DiscountID AND
+					SD.AdmissionNumber = @AdmissionNumber
+				)
+			) AS TotalDiscount
+
+		, (SELECT Dues FROM InvoiceTable AS IT
+			WHERE IT.InvoiceID = (SELECT MAX(InvoiceID) FROM InvoiceTable WHERE AdmissionNumber = @AdmissionNumber) 
+			) AS PreviousDues
+
+FROM FeeAssociationTable AS FAT
+
+INNER JOIN FeeTable AS F
+ON F.FeeID = FAT.FeeID
+
+INNER JOIN StudentTable AS S
+ON FAT.AdmissionNumber = S.AdmissionNumber
+
+WHERE FAT.AdmissionNumber = @AdmissionNumber AND FAT.FeeMonth = @FeeMonth AND [Status] = 'Pending'
+
+RETURN
+GO
+/****** Object:  StoredProcedure [dbo].[SumOfTodaysTransaction]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROC [dbo].[SumOfTodaysTransaction]
+AS
+SELECT SUM(Paid) AS AllDayTransaction, GETDATE() AS Today
+FROM InvoiceTable AS I
+WHERE InvoiceDate = GETDATE()
+GO
+/****** Object:  StoredProcedure [dbo].[UndoFeePaid]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[UndoFeePaid]
+(	
+	@AdmissionNumber int,
+	@FeeMonth varchar(30)
+)
+AS
+UPDATE FeeAssociationTable
+
+SET [Status] = 'Pending'
+
+WHERE AdmissionNumber = @AdmissionNumber AND FeeMonth = @FeeMonth
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateDiscount]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[UpdateDiscount]
+(
+	@AdmissionNumber int,
+	@FeeID int,
+	@DiscountID int
+)
+
+AS
+
+UPDATE StudentDiscountTable
+
+SET DiscountID = @DiscountID
+
+WHERE AdmissionNumber = @AdmissionNumber AND FeeID = @FeeID
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateMessage]    Script Date: 7/10/2019 10:10:50 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[UpdateMessage]
+(
+ @Id int,
+ @Body varchar(500),
+ @Title varchar(50)
+)
+AS
+
+UPDATE MessageTable
+SET Body = @Body, Title = @Title
+WHERE MessageId = @Id
+GO
+USE [master]
+GO
+ALTER DATABASE [School] SET  READ_WRITE 
+GO
